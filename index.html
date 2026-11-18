@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
+
+  <title>ByteLift | Upgrade your body</title>
+
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./icons/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html"><i class="bi bi-house-door"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./plans.html"><i class="bi bi-calendar-check"></i> Plans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./exercises.html"><i class="bi bi-table"></i> Exercises</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./nutrition.html"><i class="bi bi-egg-fried"></i> Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./gallery.html"><i class="bi bi-images"></i> Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html"><i class="bi bi-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Carousel -->
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="5000">
+        <img src="./photos/hero-1.jpg" class="d-block w-100" alt="Woman standing in a gym surrounded by equipment">
+        <div class="carousel-caption">
+          <p class="mono text-accent mb-1">&gt; boot --body</p>
+          <h2>Upgrade your body</h2>
+          <p class="d-none d-sm-block">Training plans built like software &ndash; versioned, tested and always improving.</p>
+          <a href="./plans.html" class="btn btn-accent btn-lg"><i class="bi bi-play-fill"></i> Start training</a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="./photos/hero-2.jpg" class="d-block w-100" alt="Person preparing to lift a barbell">
+        <div class="carousel-caption">
+          <p class="mono text-accent mb-1">&gt; load exercises.db</p>
+          <h2>50+ exercises</h2>
+          <p class="d-none d-sm-block">Search, sort and filter our exercise database by muscle group or equipment.</p>
+          <a href="./exercises.html" class="btn btn-outline-light btn-lg"><i class="bi bi-table"></i> Browse database</a>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="./photos/hero-3.jpg" class="d-block w-100" alt="Weightlifting equipment in an industrial gym">
+        <div class="carousel-caption">
+          <p class="mono text-accent mb-1">&gt; git commit -m "new PR"</p>
+          <h2>Your personal plan</h2>
+          <p class="d-none d-sm-block">Tell us your goals and get a plan tailored exactly to you.</p>
+          <a href="./contact.html" class="btn btn-accent btn-lg"><i class="bi bi-send"></i> Order a plan</a>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-bar py-2">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item active" aria-current="page"><i class="bi bi-house-door"></i> Home</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="container my-5">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold">Welcome to <span class="text-accent">Byte</span>Lift</h1>
+        <p class="lead">
+          ByteLift is a fitness project for people who like clear systems. We treat training
+          the same way programmers treat code: start with a simple version, measure the results
+          and release a better version every few weeks.
+        </p>
+        <p>
+          Whether you are touching a barbell for the first time or you are chasing a new personal
+          record, you will find a structured plan, a searchable exercise database and practical
+          nutrition advice here &ndash; all in one place.
+        </p>
+        <a href="./plans.html" class="btn btn-dark me-2 mb-2"><i class="bi bi-calendar-check"></i> See plans</a>
+        <a href="./nutrition.html" class="btn btn-outline-secondary mb-2"><i class="bi bi-egg-fried"></i> Nutrition tips</a>
+      </div>
+      <div class="col-lg-6">
+        <img src="./photos/gym-5.jpg" class="img-fluid rounded shadow" alt="Row of dumbbells on a rack">
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Why ByteLift?</h2>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 text-center">
+        <div class="col">
+          <i class="bi bi-cpu feature-icon"></i>
+          <h4 class="mt-2">Structured</h4>
+          <p>Every plan is split into weeks and sessions, so you always know what to do next.</p>
+        </div>
+        <div class="col">
+          <i class="bi bi-bar-chart-line feature-icon"></i>
+          <h4 class="mt-2">Measurable</h4>
+          <p>Track sets, reps and weights. Progress you can see is progress you keep.</p>
+        </div>
+        <div class="col">
+          <i class="bi bi-heart-pulse feature-icon"></i>
+          <h4 class="mt-2">Healthy</h4>
+          <p>Proper warm-up, technique and recovery are part of every program.</p>
+        </div>
+        <div class="col">
+          <i class="bi bi-trophy feature-icon"></i>
+          <h4 class="mt-2">Goal-driven</h4>
+          <p>Strength, muscle or fat loss &ndash; choose your goal and we will build the plan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs with plan levels -->
+  <div class="container my-5">
+    <h2 class="text-center mb-2">Choose your version</h2>
+    <p class="text-center text-muted mb-4">Every level is a new release. Pick the one that matches your experience.</p>
+
+    <ul class="nav nav-tabs justify-content-center" id="levelTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="beginner-tab" data-bs-toggle="tab" data-bs-target="#beginner-pane" type="button" role="tab" aria-controls="beginner-pane" aria-selected="true">
+          <i class="bi bi-1-circle"></i> Beginner
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="advanced-tab" data-bs-toggle="tab" data-bs-target="#advanced-pane" type="button" role="tab" aria-controls="advanced-pane" aria-selected="false">
+          <i class="bi bi-2-circle"></i> Advanced
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="expert-tab" data-bs-toggle="tab" data-bs-target="#expert-pane" type="button" role="tab" aria-controls="expert-pane" aria-selected="false">
+          <i class="bi bi-3-circle"></i> Expert
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content border border-top-0 rounded-bottom p-4" id="levelTabContent">
+      <div class="tab-pane fade show active" id="beginner-pane" role="tabpanel" aria-labelledby="beginner-tab" tabindex="0">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-5">
+            <img src="./photos/gym-4.jpg" class="img-fluid rounded" alt="Man carrying a dumbbell">
+          </div>
+          <div class="col-md-7">
+            <span class="badge version-badge mb-2">ByteLift v1.0</span>
+            <h3>Beginner &ndash; Hello World</h3>
+            <p>
+              Your first release. Three full-body workouts per week focused on learning the basic
+              movement patterns: squat, hinge, push and pull. Light weights, perfect technique.
+            </p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-check2-circle text-success"></i> 3 sessions per week, 45 minutes</li>
+              <li><i class="bi bi-check2-circle text-success"></i> Machines and dumbbells</li>
+              <li><i class="bi bi-check2-circle text-success"></i> Duration: 8 weeks</li>
+            </ul>
+            <button type="button" class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#planModalV1">
+              <i class="bi bi-info-circle"></i> Show details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="advanced-pane" role="tabpanel" aria-labelledby="advanced-tab" tabindex="0">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-5">
+            <img src="./photos/gym-6.jpg" class="img-fluid rounded" alt="Man lifting a barbell">
+          </div>
+          <div class="col-md-7">
+            <span class="badge version-badge mb-2">ByteLift v2.0</span>
+            <h3>Advanced &ndash; Upper / Lower split</h3>
+            <p>
+              A major update. Four sessions per week split into upper and lower body days.
+              Free weights become the core of the program and progressive overload is tracked every week.
+            </p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-check2-circle text-success"></i> 4 sessions per week, 60 minutes</li>
+              <li><i class="bi bi-check2-circle text-success"></i> Barbell, dumbbells, cables</li>
+              <li><i class="bi bi-check2-circle text-success"></i> Duration: 12 weeks</li>
+            </ul>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#planModalV2">
+              <i class="bi bi-info-circle"></i> Show details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="expert-pane" role="tabpanel" aria-labelledby="expert-tab" tabindex="0">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-5">
+            <img src="./photos/gym-2.jpg" class="img-fluid rounded" alt="Grayscale photo of a man working out">
+          </div>
+          <div class="col-md-7">
+            <span class="badge version-badge mb-2">ByteLift v3.0</span>
+            <h3>Expert &ndash; Push / Pull / Legs</h3>
+            <p>
+              The full release for experienced lifters. Five to six sessions per week, periodization
+              with heavy, medium and light weeks and advanced techniques such as drop sets and supersets.
+            </p>
+            <ul class="list-unstyled">
+              <li><i class="bi bi-check2-circle text-success"></i> 5&ndash;6 sessions per week, 75 minutes</li>
+              <li><i class="bi bi-check2-circle text-success"></i> Full gym equipment</li>
+              <li><i class="bi bi-check2-circle text-success"></i> Duration: 16 weeks</li>
+            </ul>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#planModalV3">
+              <i class="bi bi-info-circle"></i> Show details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats py-5">
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-4 g-4 text-center">
+        <div class="col">
+          <div class="stat-number">3</div>
+          <div>plan versions</div>
+        </div>
+        <div class="col">
+          <div class="stat-number">50+</div>
+          <div>exercises</div>
+        </div>
+        <div class="col">
+          <div class="stat-number">120</div>
+          <div>happy members</div>
+        </div>
+        <div class="col">
+          <div class="stat-number">24/7</div>
+          <div>uptime motivation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to action -->
+  <div class="container my-5 text-center">
+    <h2>Ready to deploy a new you?</h2>
+    <p class="lead text-muted">Fill in a short form and get a personal training plan within 48 hours.</p>
+    <a href="./contact.html" class="btn btn-accent btn-lg me-2 mb-2"><i class="bi bi-send"></i> Order a plan</a>
+    <a href="./exercises.html" class="btn btn-outline-dark btn-lg mb-2"><i class="bi bi-table"></i> Exercise database</a>
+  </div>
+
+</main>
+
+<!-- Modal v1.0 -->
+<div class="modal fade" id="planModalV1" tabindex="-1" aria-labelledby="planModalV1Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="planModalV1Label"><span class="badge version-badge">v1.0</span> Beginner &ndash; Hello World</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Three full-body sessions per week (e.g. Monday, Wednesday, Friday). Rest 90 seconds between sets.</p>
+        <table class="table table-sm table-striped">
+          <thead class="table-dark">
+            <tr><th>Exercise</th><th>Sets &times; reps</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Goblet squat</td><td>3 &times; 10</td></tr>
+            <tr><td>Machine chest press</td><td>3 &times; 10</td></tr>
+            <tr><td>Lat pulldown</td><td>3 &times; 12</td></tr>
+            <tr><td>Romanian deadlift (dumbbells)</td><td>3 &times; 10</td></tr>
+            <tr><td>Plank</td><td>3 &times; 30 s</td></tr>
+          </tbody>
+        </table>
+        <p class="mb-0"><i class="bi bi-info-circle text-primary"></i> Increase the weight when you can do all sets with clean technique.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="./contact.html" class="btn btn-accent">Order this plan</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal v2.0 -->
+<div class="modal fade" id="planModalV2" tabindex="-1" aria-labelledby="planModalV2Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="planModalV2Label"><span class="badge version-badge">v2.0</span> Advanced &ndash; Upper / Lower</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Four sessions per week: Upper A, Lower A, Upper B, Lower B. Rest 2 minutes on compound lifts.</p>
+        <table class="table table-sm table-striped">
+          <thead class="table-dark">
+            <tr><th>Day</th><th>Main exercises</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Upper A</td><td>Bench press 4&times;6, Barbell row 4&times;8, Overhead press 3&times;8</td></tr>
+            <tr><td>Lower A</td><td>Back squat 4&times;6, Romanian deadlift 3&times;8, Lunges 3&times;10</td></tr>
+            <tr><td>Upper B</td><td>Incline DB press 4&times;8, Pull-ups 4&times;max, Lateral raises 3&times;15</td></tr>
+            <tr><td>Lower B</td><td>Deadlift 3&times;5, Leg press 3&times;12, Calf raises 4&times;15</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="./contact.html" class="btn btn-primary">Order this plan</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal v3.0 -->
+<div class="modal fade" id="planModalV3" tabindex="-1" aria-labelledby="planModalV3Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="planModalV3Label"><span class="badge version-badge">v3.0</span> Expert &ndash; Push / Pull / Legs</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Six sessions per week (Push, Pull, Legs, repeat) with one rest day. Weeks rotate heavy &ndash; medium &ndash; light.</p>
+        <table class="table table-sm table-striped">
+          <thead class="table-dark">
+            <tr><th>Day</th><th>Main exercises</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Push</td><td>Bench press 5&times;5, Overhead press 4&times;6, Dips 3&times;10, Triceps pushdown 3&times;12</td></tr>
+            <tr><td>Pull</td><td>Deadlift 5&times;3, Weighted pull-ups 4&times;6, Cable row 3&times;10, Biceps curl 3&times;12</td></tr>
+            <tr><td>Legs</td><td>Back squat 5&times;5, Front squat 3&times;8, Leg curl 3&times;12, Calf raises 4&times;15</td></tr>
+          </tbody>
+        </table>
+        <p class="mb-0"><i class="bi bi-fire text-danger"></i> Last set of each accessory exercise is a drop set.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="./contact.html" class="btn btn-danger">Order this plan</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="pt-4 pb-3 mt-auto">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="col">
+        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Links</h5>
+        <ul class="list-unstyled small mb-0">
+          <li><a href="./plans.html">Training plans</a></li>
+          <li><a href="./exercises.html">Exercise database</a></li>
+          <li><a href="./contact.html">Order a plan</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Follow us</h5>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small mb-0">&copy; 2026 ByteLift &ndash; semester project KIP/7REWB. Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+  </div>
+</footer>
+
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

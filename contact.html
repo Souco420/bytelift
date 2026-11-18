@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
+
+  <title>Order a plan | ByteLift</title>
+
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./icons/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html"><i class="bi bi-house-door"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./plans.html"><i class="bi bi-calendar-check"></i> Plans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./exercises.html"><i class="bi bi-table"></i> Exercises</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./nutrition.html"><i class="bi bi-egg-fried"></i> Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./gallery.html"><i class="bi bi-images"></i> Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./contact.html"><i class="bi bi-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Page header with breadcrumb -->
+  <div class="page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-2">
+          <li class="breadcrumb-item"><a href="./index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Contact</li>
+        </ol>
+      </nav>
+      <h1 class="fw-bold">Order a plan</h1>
+      <p class="lead mb-0">Tell us about yourself and we will build your personal plan.</p>
+    </div>
+  </div>
+  <div class="container my-5">
+    <div class="row gy-5 gx-lg-5">
+
+      <!-- Order form -->
+      <div class="col-lg-8">
+        <h2 class="mb-3">Personal plan order</h2>
+        <p>Fill in the form below. Fields marked with <span class="text-danger">*</span> are required.</p>
+
+        <div class="alert alert-success d-none" id="formSuccess" role="alert">
+          <i class="bi bi-check2-circle"></i> <strong>Saved!</strong> Thank you, we will send your personal plan within 48 hours.
+        </div>
+
+        <form id="orderForm" class="needs-validation" novalidate>
+
+          <h3 class="h5 mt-4 border-bottom pb-2"><i class="bi bi-person text-accent"></i> Personal information</h3>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="firstName" placeholder="John" required>
+              <div class="invalid-feedback">Please enter your first name.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="lastName" placeholder="Smith" required>
+              <div class="invalid-feedback">Please enter your last name.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+              <div class="input-group has-validation">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Phone</label>
+              <div class="input-group">
+                <span class="input-group-text">+420</span>
+                <input type="tel" class="form-control" id="phone" placeholder="123 456 789" pattern="[0-9 ]{9,11}">
+              </div>
+              <div class="form-text">Optional, 9 digits.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label d-block">Sex <span class="text-danger">*</span></label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sex" id="sexMale" value="male" required>
+                <label class="form-check-label" for="sexMale">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sex" id="sexFemale" value="female" required>
+                <label class="form-check-label" for="sexFemale">Female</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sex" id="sexOther" value="other" required>
+                <label class="form-check-label" for="sexOther">Prefer not to say</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="age" class="form-label">Age <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="age" min="15" max="99" placeholder="25" required>
+              <div class="invalid-feedback">Age must be between 15 and 99.</div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-5 border-bottom pb-2"><i class="bi bi-rulers text-accent"></i> Body parameters</h3>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="height" class="form-label">Height <span class="text-danger">*</span></label>
+              <div class="input-group has-validation">
+                <input type="number" class="form-control" id="height" min="120" max="230" placeholder="180" required>
+                <span class="input-group-text">cm</span>
+                <div class="invalid-feedback">Enter height between 120 and 230 cm.</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="weight" class="form-label">Weight <span class="text-danger">*</span></label>
+              <div class="input-group has-validation">
+                <input type="number" class="form-control" id="weight" min="35" max="250" step="0.1" placeholder="75" required>
+                <span class="input-group-text">kg</span>
+                <div class="invalid-feedback">Enter weight between 35 and 250 kg.</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h5 mt-5 border-bottom pb-2"><i class="bi bi-trophy text-accent"></i> Goals and training</h3>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="goal" class="form-label">Main goal <span class="text-danger">*</span></label>
+              <select class="form-select" id="goal" required>
+                <option selected disabled value="">Choose your goal&hellip;</option>
+                <option value="muscle">Build muscle</option>
+                <option value="strength">Get stronger</option>
+                <option value="fatloss">Lose fat</option>
+                <option value="health">Health and fitness</option>
+              </select>
+              <div class="invalid-feedback">Please choose a goal.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="version" class="form-label">Plan version</label>
+              <select class="form-select" id="version">
+                <option value="v1">v1.0 &ndash; Beginner (free)</option>
+                <option value="v2" selected>v2.0 &ndash; Advanced (490 CZK)</option>
+                <option value="v3">v3.0 &ndash; Expert (890 CZK)</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label d-block">Training experience</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="experience" id="exp0" value="0" checked>
+                <label class="form-check-label" for="exp0">Less than 6 months</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="experience" id="exp1" value="1">
+                <label class="form-check-label" for="exp1">6 months &ndash; 2 years</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="experience" id="exp2" value="2">
+                <label class="form-check-label" for="exp2">More than 2 years</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label d-block">Available training days</label>
+              <div class="row row-cols-2">
+                <div class="col form-check ps-4">
+                  <input class="form-check-input" type="checkbox" name="days" value="mon" id="dayMon">
+                  <label class="form-check-label" for="dayMon">Monday</label>
+                </div>
+                <div class="col form-check ps-4">
+                  <input class="form-check-input" type="checkbox" name="days" value="tue" id="dayTue">
+                  <label class="form-check-label" for="dayTue">Tuesday</label>
+                </div>
+                <div class="col form-check ps-4">
+                  <input class="form-check-input" type="checkbox" name="days" value="wed" id="dayWed">
+                  <label class="form-check-label" for="dayWed">Wednesday</label>
+                </div>
+                <div class="col form-check ps-4">
+                  <input class="form-check-input" type="checkbox" name="days" value="thu" id="dayThu">
+                  <label class="form-check-label" for="dayThu">Thursday</label>
+                </div>
+                <div class="col form-check ps-4">
+                  <input class="form-check-input" type="checkbox" name="days" value="fri" id="dayFri">
+                  <label class="form-check-label" for="dayFri">Friday</label>
+                </div>
+                <div class="col form-check ps-4">
+                  <input class="form-check-input" type="checkbox" name="days" value="sat" id="daySat">
+                  <label class="form-check-label" for="daySat">Saturday</label>
+                </div>
+                <div class="col form-check ps-4">
+                  <input class="form-check-input" type="checkbox" name="days" value="sun" id="daySun">
+                  <label class="form-check-label" for="daySun">Sunday</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="sessionLength" class="form-label">Session length: <span id="sessionLengthValue" class="mono">60</span> min</label>
+              <input type="range" class="form-range" id="sessionLength" min="30" max="120" step="15" value="60">
+            </div>
+            <div class="col-md-6">
+              <label for="startDate" class="form-label">Preferred start date</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
+                <input type="date" class="form-control" id="startDate">
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="note" class="form-label">Injuries, limitations or notes</label>
+              <textarea class="form-control" id="note" rows="4" placeholder="e.g. old knee injury, I train at home, I want to focus on my back&hellip;"></textarea>
+            </div>
+            <div class="col-12">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="newsletter">
+                <label class="form-check-label" for="newsletter">Send me the ByteLift newsletter</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="terms" required>
+                <label class="form-check-label" for="terms">I agree with processing of my personal data <span class="text-danger">*</span></label>
+                <div class="invalid-feedback">You must agree before saving.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 d-flex gap-2">
+            <button type="submit" class="btn btn-accent btn-lg"><i class="bi bi-save2"></i> Save</button>
+            <button type="reset" class="btn btn-outline-secondary btn-lg"><i class="bi bi-eraser"></i> Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Contact info -->
+      <div class="col-lg-4">
+        <div class="card border-0 bg-light">
+          <div class="card-body">
+            <h2 class="h4 card-title mb-3">Contact</h2>
+            <p><i class="bi bi-geo-alt text-accent"></i> ByteLift Gym<br>Sportovní 42<br>700 30 Ostrava</p>
+            <p><i class="bi bi-telephone text-accent"></i> <a href="tel:+420123456789" class="link-dark">+420 123 456 789</a></p>
+            <p><i class="bi bi-envelope text-accent"></i> <a href="mailto:info@bytelift.example" class="link-dark">info@bytelift.example</a></p>
+            <h3 class="h5 mt-4">Opening hours</h3>
+            <table class="table table-sm mb-0">
+              <tbody>
+                <tr><td>Mon &ndash; Fri</td><td class="text-end">6:00 &ndash; 22:00</td></tr>
+                <tr><td>Sat &ndash; Sun</td><td class="text-end">8:00 &ndash; 20:00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="mt-4">
+          <img src="./photos/gym-8.jpg" class="img-fluid rounded" alt="Treadmills in the ByteLift gym">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="pt-4 pb-3 mt-auto">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="col">
+        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Links</h5>
+        <ul class="list-unstyled small mb-0">
+          <li><a href="./plans.html">Training plans</a></li>
+          <li><a href="./exercises.html">Exercise database</a></li>
+          <li><a href="./contact.html">Order a plan</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Follow us</h5>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small mb-0">&copy; 2026 ByteLift &ndash; semester project KIP/7REWB. Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+  </div>
+</footer>
+
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+  // show the value of the range input
+  const range = document.getElementById('sessionLength');
+  range.addEventListener('input', function () {
+    document.getElementById('sessionLengthValue').textContent = range.value;
+  });
+
+  // Bootstrap form validation, no data is sent anywhere (static website)
+  const form = document.getElementById('orderForm');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (form.checkValidity()) {
+      document.getElementById('formSuccess').classList.remove('d-none');
+      form.reset();
+      form.classList.remove('was-validated');
+      document.getElementById('sessionLengthValue').textContent = range.value;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      form.classList.add('was-validated');
+    }
+  });
+</script>
+
+</body>
+</html>
