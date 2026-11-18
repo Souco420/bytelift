@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
+
+  <title>Exercise database | ByteLift</title>
+
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./icons/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link href="./css/dataTables.bootstrap5.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html"><i class="bi bi-house-door"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./plans.html"><i class="bi bi-calendar-check"></i> Plans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./exercises.html"><i class="bi bi-table"></i> Exercises</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./nutrition.html"><i class="bi bi-egg-fried"></i> Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./gallery.html"><i class="bi bi-images"></i> Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html"><i class="bi bi-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Page header with breadcrumb -->
+  <div class="page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-2">
+          <li class="breadcrumb-item"><a href="./index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Exercises</li>
+        </ol>
+      </nav>
+      <h1 class="fw-bold">Exercise database</h1>
+      <p class="lead mb-0">50+ exercises you can search, sort and filter.</p>
+    </div>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4 mb-4">
+      <div class="col-lg-8">
+        <p class="lead">
+          Our exercise database contains 52 exercises that we use in ByteLift plans.
+          Use the search box to find an exercise, click a column header to sort, or change how many
+          rows are shown on one page.
+        </p>
+        <p>
+          Tip: type <span class="mono">Beginner</span> or <span class="mono">Dumbbell</span> into the search box
+          to find exercises you can do from day one with basic equipment.
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <div class="card border-0 bg-light h-100">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-info-circle text-accent"></i> Difficulty legend</h5>
+            <p class="mb-1"><span class="badge bg-success">Beginner</span> safe to learn on your own</p>
+            <p class="mb-1"><span class="badge bg-warning text-dark">Intermediate</span> needs good technique</p>
+            <p class="mb-0"><span class="badge bg-danger">Advanced</span> heavy, complex movements</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table id="exercises" class="table table-striped table-hover" style="width:100%">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Exercise</th>
+          <th>Muscle group</th>
+          <th>Equipment</th>
+          <th>Difficulty</th>
+          <th>Sets &times; reps</th>
+          <th>Rest (s)</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr>
+              <td>1</td>
+              <td>Back squat</td>
+              <td>Legs</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">4 &times; 6</td>
+              <td>150</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Front squat</td>
+              <td>Legs</td>
+              <td>Barbell</td>
+              <td data-order="3"><span class="badge bg-danger">Advanced</span></td>
+              <td class="mono">4 &times; 6</td>
+              <td>150</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Goblet squat</td>
+              <td>Legs</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Leg press</td>
+              <td>Legs</td>
+              <td>Machine</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Bulgarian split squat</td>
+              <td>Legs</td>
+              <td>Dumbbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Walking lunges</td>
+              <td>Legs</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Leg extension</td>
+              <td>Legs</td>
+              <td>Machine</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Lying leg curl</td>
+              <td>Legs</td>
+              <td>Machine</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Romanian deadlift</td>
+              <td>Legs</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 8</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Hip thrust</td>
+              <td>Glutes</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">4 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Glute bridge</td>
+              <td>Glutes</td>
+              <td>Bodyweight</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Cable kickback</td>
+              <td>Glutes</td>
+              <td>Cable</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>Standing calf raise</td>
+              <td>Calves</td>
+              <td>Machine</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">4 &times; 15</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>Seated calf raise</td>
+              <td>Calves</td>
+              <td>Machine</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">4 &times; 15</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>Deadlift</td>
+              <td>Back</td>
+              <td>Barbell</td>
+              <td data-order="3"><span class="badge bg-danger">Advanced</span></td>
+              <td class="mono">3 &times; 5</td>
+              <td>180</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>Pull-up</td>
+              <td>Back</td>
+              <td>Bodyweight</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">4 &times; 8</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>Chin-up</td>
+              <td>Back</td>
+              <td>Bodyweight</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 8</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>Lat pulldown</td>
+              <td>Back</td>
+              <td>Cable</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>Barbell row</td>
+              <td>Back</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">4 &times; 8</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>One-arm dumbbell row</td>
+              <td>Back</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>Seated cable row</td>
+              <td>Back</td>
+              <td>Cable</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>22</td>
+              <td>T-bar row</td>
+              <td>Back</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>Face pull</td>
+              <td>Shoulders</td>
+              <td>Cable</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td>Overhead press</td>
+              <td>Shoulders</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">4 &times; 6</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>Seated dumbbell press</td>
+              <td>Shoulders</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>26</td>
+              <td>Lateral raise</td>
+              <td>Shoulders</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td>Rear delt fly</td>
+              <td>Shoulders</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td>Arnold press</td>
+              <td>Shoulders</td>
+              <td>Dumbbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>29</td>
+              <td>Bench press</td>
+              <td>Chest</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">4 &times; 6</td>
+              <td>150</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>Incline bench press</td>
+              <td>Chest</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">4 &times; 8</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td>Dumbbell bench press</td>
+              <td>Chest</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>32</td>
+              <td>Incline dumbbell press</td>
+              <td>Chest</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>33</td>
+              <td>Machine chest press</td>
+              <td>Chest</td>
+              <td>Machine</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>34</td>
+              <td>Cable crossover</td>
+              <td>Chest</td>
+              <td>Cable</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>35</td>
+              <td>Push-up</td>
+              <td>Chest</td>
+              <td>Bodyweight</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>36</td>
+              <td>Dips</td>
+              <td>Chest</td>
+              <td>Bodyweight</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>37</td>
+              <td>Barbell curl</td>
+              <td>Biceps</td>
+              <td>Barbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>38</td>
+              <td>Hammer curl</td>
+              <td>Biceps</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>39</td>
+              <td>Incline dumbbell curl</td>
+              <td>Biceps</td>
+              <td>Dumbbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>40</td>
+              <td>Cable curl</td>
+              <td>Biceps</td>
+              <td>Cable</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>41</td>
+              <td>Triceps pushdown</td>
+              <td>Triceps</td>
+              <td>Cable</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>42</td>
+              <td>Skull crusher</td>
+              <td>Triceps</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>43</td>
+              <td>Overhead triceps extension</td>
+              <td>Triceps</td>
+              <td>Dumbbell</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>44</td>
+              <td>Close-grip bench press</td>
+              <td>Triceps</td>
+              <td>Barbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 8</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>Plank</td>
+              <td>Core</td>
+              <td>Bodyweight</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 45 s</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>46</td>
+              <td>Hanging leg raise</td>
+              <td>Core</td>
+              <td>Bodyweight</td>
+              <td data-order="3"><span class="badge bg-danger">Advanced</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>47</td>
+              <td>Cable crunch</td>
+              <td>Core</td>
+              <td>Cable</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 15</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>48</td>
+              <td>Russian twist</td>
+              <td>Core</td>
+              <td>Bodyweight</td>
+              <td data-order="1"><span class="badge bg-success">Beginner</span></td>
+              <td class="mono">3 &times; 20</td>
+              <td>45</td>
+            </tr>
+            <tr>
+              <td>49</td>
+              <td>Ab wheel rollout</td>
+              <td>Core</td>
+              <td>Bodyweight</td>
+              <td data-order="3"><span class="badge bg-danger">Advanced</span></td>
+              <td class="mono">3 &times; 10</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>50</td>
+              <td>Farmer&#39;s walk</td>
+              <td>Full body</td>
+              <td>Dumbbell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 40 m</td>
+              <td>90</td>
+            </tr>
+            <tr>
+              <td>51</td>
+              <td>Kettlebell swing</td>
+              <td>Full body</td>
+              <td>Kettlebell</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">4 &times; 15</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td>52</td>
+              <td>Burpee</td>
+              <td>Full body</td>
+              <td>Bodyweight</td>
+              <td data-order="2"><span class="badge bg-warning text-dark">Intermediate</span></td>
+              <td class="mono">3 &times; 12</td>
+              <td>60</td>
+            </tr>
+      </tbody>
+    </table>
+
+    <div class="mt-4">
+      <a href="./plans.html" class="btn btn-dark me-2 mb-2"><i class="bi bi-calendar-check"></i> See plans</a>
+      <a href="./contact.html" class="btn btn-accent mb-2"><i class="bi bi-send"></i> Order a personal plan</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="pt-4 pb-3 mt-auto">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="col">
+        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Links</h5>
+        <ul class="list-unstyled small mb-0">
+          <li><a href="./plans.html">Training plans</a></li>
+          <li><a href="./exercises.html">Exercise database</a></li>
+          <li><a href="./contact.html">Order a plan</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Follow us</h5>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small mb-0">&copy; 2026 ByteLift &ndash; semester project KIP/7REWB. Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+  </div>
+</footer>
+
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./js/jquery-3.7.1.js"></script>
+<script src="./js/dataTables.js"></script>
+<script src="./js/dataTables.bootstrap5.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#exercises').DataTable({
+      pageLength: 10,
+      lengthMenu: [5, 10, 25, 50]
+    });
+  });
+</script>
+
+</body>
+</html>

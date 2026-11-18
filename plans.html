@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
+
+  <title>Training plans | ByteLift</title>
+
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./icons/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html"><i class="bi bi-house-door"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./plans.html"><i class="bi bi-calendar-check"></i> Plans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./exercises.html"><i class="bi bi-table"></i> Exercises</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./nutrition.html"><i class="bi bi-egg-fried"></i> Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./gallery.html"><i class="bi bi-images"></i> Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html"><i class="bi bi-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Page header with breadcrumb -->
+  <div class="page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-2">
+          <li class="breadcrumb-item"><a href="./index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Plans</li>
+        </ol>
+      </nav>
+      <h1 class="fw-bold">Training plans</h1>
+      <p class="lead mb-0">Pick a version, follow the schedule, track your progress.</p>
+    </div>
+  </div>
+  <div class="container my-5">
+    <p class="lead">
+      Every ByteLift plan works like a software release. You start with <span class="mono">v1.0</span>,
+      and when you are ready, you upgrade. Each plan includes a weekly schedule, exercise list with sets
+      and reps, and simple rules for progression.
+    </p>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+      <div class="col">
+        <div class="card h-100 card-plan">
+          <img src="./photos/gym-4.jpg" class="card-img-top" alt="Man carrying a dumbbell">
+          <div class="card-body">
+            <span class="badge version-badge mb-2">v1.0</span>
+            <h3 class="card-title">Hello World</h3>
+            <p class="text-muted mb-2"><i class="bi bi-person"></i> Beginner</p>
+            <p class="card-text">Three full-body workouts per week. Learn the basic movements and build a habit.</p>
+            <ul class="list-unstyled small">
+              <li><i class="bi bi-clock"></i> 45 min / session</li>
+              <li><i class="bi bi-calendar-check"></i> 3&times; per week, 8 weeks</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <p class="fs-4 fw-bold mb-2">Free</p>
+            <a href="./contact.html" class="btn btn-accent w-100"><i class="bi bi-download"></i> Get v1.0</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 card-plan border-primary">
+          <img src="./photos/gym-6.jpg" class="card-img-top" alt="Man lifting a barbell">
+          <div class="card-body">
+            <span class="badge version-badge mb-2">v2.0</span>
+            <span class="badge bg-primary mb-2">Most popular</span>
+            <h3 class="card-title">Upper / Lower</h3>
+            <p class="text-muted mb-2"><i class="bi bi-person"></i> Advanced</p>
+            <p class="card-text">Four sessions per week with free weights and weekly progressive overload.</p>
+            <ul class="list-unstyled small">
+              <li><i class="bi bi-clock"></i> 60 min / session</li>
+              <li><i class="bi bi-calendar-check"></i> 4&times; per week, 12 weeks</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <p class="fs-4 fw-bold mb-2">490 CZK</p>
+            <a href="./contact.html" class="btn btn-primary w-100"><i class="bi bi-download"></i> Get v2.0</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 card-plan">
+          <img src="./photos/gym-2.jpg" class="card-img-top" alt="Grayscale photo of a man working out">
+          <div class="card-body">
+            <span class="badge version-badge mb-2">v3.0</span>
+            <h3 class="card-title">Push / Pull / Legs</h3>
+            <p class="text-muted mb-2"><i class="bi bi-person"></i> Expert</p>
+            <p class="card-text">Six sessions per week, periodization and advanced techniques for experienced lifters.</p>
+            <ul class="list-unstyled small">
+              <li><i class="bi bi-clock"></i> 75 min / session</li>
+              <li><i class="bi bi-calendar-check"></i> 6&times; per week, 16 weeks</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <p class="fs-4 fw-bold mb-2">890 CZK</p>
+            <a href="./contact.html" class="btn btn-danger w-100"><i class="bi bi-download"></i> Get v3.0</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weekly schedule -->
+  <div class="bg-light py-5">
+    <div class="container">
+      <h2 class="mb-3">Weekly schedule</h2>
+      <p>This is how a typical week looks in each version. <span class="badge bg-secondary">Rest</span> days are as important as training days &ndash; muscles grow while you recover.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle bg-white">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Version</th>
+              <th scope="col">Mon</th>
+              <th scope="col">Tue</th>
+              <th scope="col">Wed</th>
+              <th scope="col">Thu</th>
+              <th scope="col">Fri</th>
+              <th scope="col">Sat</th>
+              <th scope="col">Sun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="mono">v1.0</th>
+              <td>Full body</td>
+              <td class="table-secondary">Rest</td>
+              <td>Full body</td>
+              <td class="table-secondary">Rest</td>
+              <td>Full body</td>
+              <td class="table-success">Walk / cardio</td>
+              <td class="table-secondary">Rest</td>
+            </tr>
+            <tr>
+              <th scope="row" class="mono">v2.0</th>
+              <td>Upper A</td>
+              <td>Lower A</td>
+              <td class="table-secondary">Rest</td>
+              <td>Upper B</td>
+              <td>Lower B</td>
+              <td class="table-success">Cardio</td>
+              <td class="table-secondary">Rest</td>
+            </tr>
+            <tr>
+              <th scope="row" class="mono">v3.0</th>
+              <td>Push</td>
+              <td>Pull</td>
+              <td>Legs</td>
+              <td>Push</td>
+              <td>Pull</td>
+              <td>Legs</td>
+              <td class="table-secondary">Rest</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ accordion -->
+  <div class="container my-5">
+    <h2 class="mb-3">Frequently asked questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+            Which version should I start with?
+          </button>
+        </h3>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            If you have trained regularly for less than six months, start with <strong>v1.0</strong>.
+            It is not &quot;too easy&quot; &ndash; it teaches you the technique you will need for heavier weights later.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+            When should I upgrade to the next version?
+          </button>
+        </h3>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            When you finish the whole plan, you are able to add weight regularly and your technique is solid.
+            If your progress stops for more than three weeks, it is also a good signal to upgrade.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+            Can I train at home?
+          </button>
+        </h3>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, <strong>v1.0</strong> can be done at home with a pair of adjustable dumbbells and a bench.
+            Versions 2.0 and 3.0 need a barbell and a squat rack, so a gym is recommended.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+            Do I get a personal plan?
+          </button>
+        </h3>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes. Fill in the <a href="./contact.html">order form</a> with your goals, height, weight and available days,
+            and we will adjust the plan to fit you.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="pt-4 pb-3 mt-auto">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="col">
+        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Links</h5>
+        <ul class="list-unstyled small mb-0">
+          <li><a href="./plans.html">Training plans</a></li>
+          <li><a href="./exercises.html">Exercise database</a></li>
+          <li><a href="./contact.html">Order a plan</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Follow us</h5>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small mb-0">&copy; 2026 ByteLift &ndash; semester project KIP/7REWB. Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+  </div>
+</footer>
+
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

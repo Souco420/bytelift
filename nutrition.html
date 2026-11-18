@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
+
+  <title>Nutrition | ByteLift</title>
+
+  <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./icons/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html"><i class="bi bi-house-door"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./plans.html"><i class="bi bi-calendar-check"></i> Plans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./exercises.html"><i class="bi bi-table"></i> Exercises</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./nutrition.html"><i class="bi bi-egg-fried"></i> Nutrition</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./gallery.html"><i class="bi bi-images"></i> Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html"><i class="bi bi-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Page header with breadcrumb -->
+  <div class="page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-2">
+          <li class="breadcrumb-item"><a href="./index.html"><i class="bi bi-house-door"></i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Nutrition</li>
+        </ol>
+      </nav>
+      <h1 class="fw-bold">Nutrition</h1>
+      <p class="lead mb-0">Fuel for your training &ndash; simple rules that work.</p>
+    </div>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-7">
+        <h2>You can't out-train a bad diet</h2>
+        <p class="lead">
+          Training is the input, food is the energy that runs the program. Without enough protein and
+          calories, even the best plan will not bring the results you want.
+        </p>
+        <p>
+          Good news: you do not need a complicated diet. Follow a few simple rules most of the time,
+          eat mostly real food and adjust the amount based on your goal &ndash; building muscle,
+          losing fat or keeping your current weight.
+        </p>
+      </div>
+      <div class="col-lg-5">
+        <img src="./photos/food-1.jpg" class="img-fluid rounded shadow" alt="Meal prep containers with rice and vegetables">
+      </div>
+    </div>
+  </div>
+
+  <!-- Macronutrients -->
+  <div class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">The three macronutrients</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100 text-center border-0 shadow-sm">
+            <div class="card-body">
+              <i class="bi bi-egg-fried feature-icon"></i>
+              <h3 class="card-title mt-2">Protein</h3>
+              <p class="mono text-muted">1.6 &ndash; 2.2 g / kg</p>
+              <p class="card-text">Builds and repairs muscle. Sources: meat, fish, eggs, cottage cheese, Greek yogurt, legumes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center border-0 shadow-sm">
+            <div class="card-body">
+              <i class="bi bi-basket2 feature-icon"></i>
+              <h3 class="card-title mt-2">Carbohydrates</h3>
+              <p class="mono text-muted">3 &ndash; 5 g / kg</p>
+              <p class="card-text">The main fuel for hard training. Sources: oats, rice, potatoes, whole-grain bread, fruit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 text-center border-0 shadow-sm">
+            <div class="card-body">
+              <i class="bi bi-droplet feature-icon"></i>
+              <h3 class="card-title mt-2">Fats</h3>
+              <p class="mono text-muted">0.8 &ndash; 1 g / kg</p>
+              <p class="card-text">Important for hormones and health. Sources: nuts, olive oil, avocado, fatty fish.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meal plans in tabs -->
+  <div class="container my-5">
+    <h2 class="mb-3">Sample day of eating</h2>
+    <p>Choose your goal to see an example menu for a person weighing around 75 kg.</p>
+
+    <ul class="nav nav-pills mb-3" id="mealTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="bulk-tab" data-bs-toggle="pill" data-bs-target="#bulk-pane" type="button" role="tab" aria-controls="bulk-pane" aria-selected="true">
+          <i class="bi bi-graph-up-arrow"></i> Muscle gain
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="cut-tab" data-bs-toggle="pill" data-bs-target="#cut-pane" type="button" role="tab" aria-controls="cut-pane" aria-selected="false">
+          <i class="bi bi-fire"></i> Fat loss
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="maintain-tab" data-bs-toggle="pill" data-bs-target="#maintain-pane" type="button" role="tab" aria-controls="maintain-pane" aria-selected="false">
+          <i class="bi bi-heart-pulse"></i> Maintenance
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="mealTabContent">
+      <div class="tab-pane fade show active" id="bulk-pane" role="tabpanel" aria-labelledby="bulk-tab" tabindex="0">
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead class="table-dark">
+              <tr><th>Meal</th><th>Food</th><th>kcal</th><th>Protein (g)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Breakfast</td><td>Oatmeal with milk, banana and peanut butter</td><td>650</td><td>25</td></tr>
+              <tr><td>Snack</td><td>Greek yogurt with honey and walnuts</td><td>350</td><td>20</td></tr>
+              <tr><td>Lunch</td><td>Chicken breast, rice, vegetables, olive oil</td><td>750</td><td>50</td></tr>
+              <tr><td>Pre-workout</td><td>Whole-grain bread with ham and cheese</td><td>400</td><td>25</td></tr>
+              <tr><td>Dinner</td><td>Salmon, potatoes, broccoli</td><td>700</td><td>40</td></tr>
+              <tr class="table-success fw-bold"><td colspan="2">Total</td><td>2 850</td><td>160</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="cut-pane" role="tabpanel" aria-labelledby="cut-tab" tabindex="0">
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead class="table-dark">
+              <tr><th>Meal</th><th>Food</th><th>kcal</th><th>Protein (g)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Breakfast</td><td>Scrambled eggs (3) with vegetables and one slice of bread</td><td>400</td><td>25</td></tr>
+              <tr><td>Snack</td><td>Cottage cheese with berries</td><td>200</td><td>20</td></tr>
+              <tr><td>Lunch</td><td>Turkey breast, bulgur, big salad</td><td>550</td><td>45</td></tr>
+              <tr><td>Snack</td><td>Protein shake and an apple</td><td>220</td><td>25</td></tr>
+              <tr><td>Dinner</td><td>Cod, roasted vegetables, potatoes</td><td>480</td><td>40</td></tr>
+              <tr class="table-success fw-bold"><td colspan="2">Total</td><td>1 850</td><td>155</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="maintain-pane" role="tabpanel" aria-labelledby="maintain-tab" tabindex="0">
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead class="table-dark">
+              <tr><th>Meal</th><th>Food</th><th>kcal</th><th>Protein (g)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Breakfast</td><td>Whole-grain toast, eggs (2), avocado</td><td>500</td><td>22</td></tr>
+              <tr><td>Snack</td><td>Skyr with fruit</td><td>250</td><td>20</td></tr>
+              <tr><td>Lunch</td><td>Beef, pasta, tomato sauce, salad</td><td>700</td><td>45</td></tr>
+              <tr><td>Snack</td><td>Handful of nuts and a banana</td><td>300</td><td>7</td></tr>
+              <tr><td>Dinner</td><td>Chicken wrap with vegetables and yogurt dressing</td><td>550</td><td>40</td></tr>
+              <tr class="table-success fw-bold"><td colspan="2">Total</td><td>2 300</td><td>134</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="container mb-5">
+    <h2 class="mb-4">5 simple rules</h2>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <ol class="list-group list-group-numbered">
+          <li class="list-group-item"><strong>Protein in every meal.</strong> Aim for 25&ndash;40 g per meal.</li>
+          <li class="list-group-item"><strong>Half of the plate is vegetables.</strong> Fibre, vitamins, fullness.</li>
+          <li class="list-group-item"><strong>Drink water.</strong> Around 35 ml per kg of body weight per day.</li>
+          <li class="list-group-item"><strong>Plan ahead.</strong> Meal prep on Sunday saves the whole week.</li>
+          <li class="list-group-item"><strong>80/20 rule.</strong> Eat well 80 % of the time and enjoy the rest.</li>
+        </ol>
+      </div>
+      <div class="col-lg-6">
+        <div class="row row-cols-2 g-3">
+          <div class="col"><img src="./photos/food-2.jpg" class="img-fluid rounded" alt="Avocado, tomatoes, eggs and mushrooms"></div>
+          <div class="col"><img src="./photos/food-3.jpg" class="img-fluid rounded" alt="Cooked food on a tray"></div>
+          <div class="col"><img src="./photos/food-4.jpg" class="img-fluid rounded" alt="Person cutting vegetables"></div>
+          <div class="col d-flex align-items-center">
+            <div class="alert alert-success mb-0 w-100">
+              <i class="bi bi-capsule"></i> Supplements are only <em>patches</em>. The real update is your daily food.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="pt-4 pb-3 mt-auto">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+      <div class="col">
+        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Links</h5>
+        <ul class="list-unstyled small mb-0">
+          <li><a href="./plans.html">Training plans</a></li>
+          <li><a href="./exercises.html">Exercise database</a></li>
+          <li><a href="./contact.html">Order a plan</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5 class="text-white">Follow us</h5>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small mb-0">&copy; 2026 ByteLift &ndash; semester project KIP/7REWB. Photos: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+  </div>
+</footer>
+
+<script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
