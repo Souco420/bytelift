@@ -1,11 +1,27 @@
-/* ByteLift - custom styles */
+/* =====================================================================
+   ByteLift - vlastní styly
+   ---------------------------------------------------------------------
+   Většinu vzhledu řeší Bootstrap (bootstrap.min.css). Tady jsou jen
+   věci navíc: barvy webu, fonty, úpravy komponent a media queries.
+   Soubor se načítá AŽ ZA Bootstrapem, takže naše pravidla mají přednost.
+   ===================================================================== */
 
+
+/* ---------- Barvy webu (CSS proměnné) ----------
+   Barvy jsou uložené jednou na jednom místě. V dalších pravidlech se
+   používají přes var(--nazev). Když chci změnit barvu webu, změním ji jen tady. */
 :root {
-    --bl-accent: #00d26a;        /* neon green "tech" accent */
-    --bl-accent-dark: #00a653;
-    --bl-dark: #121417;
+    --color-green: #00d26a;        /* hlavní neonově zelená ("tech" barva) */
+    --color-green-dark: #00a653;   /* tmavší zelená - pro najetí myší na tlačítko */
+    --color-dark: #121417;          /* skoro černá - menu, patička, tmavé pruhy */
 }
 
+
+/* ---------- Základ stránky ---------- */
+
+/* Písmo celého webu + "sticky footer":
+   body je flexbox ve sloupci a je vysoké minimálně jako okno (100vh),
+   takže patička je vždy dole, i když má stránka málo obsahu. */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     display: flex;
@@ -13,78 +29,82 @@ body {
     min-height: 100vh;
 }
 
+/* main zabere všechno volné místo a odtlačí patičku dolů */
 main {
     flex: 1;
 }
 
+/* nadpisy a logo mají sportovní úzké písmo Oswald */
 h1, h2, h3, h4, h5, .navbar-brand {
     font-family: 'Oswald', Arial, sans-serif;
 }
 
-.mono {
+/* pomocná třída: "programátorské" písmo (např. > boot --body, v1.0) */
+.code-font {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
 
-/* ---------- Navbar & logo ---------- */
 
+/* ---------- Menu (navbar) a logo ---------- */
+
+/* tmavé pozadí menu místo výchozí barvy Bootstrapu */
 .navbar {
-    background-color: var(--bl-dark);
+    background-color: var(--color-dark);
 }
 
+/* velikost a mezery mezi písmeny v logu */
 .navbar-brand {
     font-size: 1.6rem;
     letter-spacing: 1px;
 }
 
+/* ikona procesoru v logu je zelená */
 .navbar-brand .bi {
-    color: var(--bl-accent);
+    color: var(--color-green);
 }
 
-.brand-byte {
-    color: var(--bl-accent);
+/* slovo "Byte" v logu je zelené a tučné */
+.logo-highlight {
+    color: var(--color-green);
     font-weight: 700;
 }
 
+/* položka menu stránky, na které právě jsem (třída active), je zelená.
+   !important je tu proto, aby to přebilo barvu z Bootstrapu */
 .navbar .nav-link.active {
-    color: var(--bl-accent) !important;
+    color: var(--color-green) !important;
 }
 
-/* ---------- Accent colour helpers ---------- */
 
-.text-accent {
-    color: var(--bl-accent);
+/* ---------- Vlastní zelené tlačítko a text ---------- */
+
+/* zelený text (např. "Byte" v nadpisu, ikony) */
+.text-green {
+    color: var(--color-green);
 }
 
-.bg-accent {
-    background-color: var(--bl-accent);
-}
-
-.btn-accent {
-    background-color: var(--bl-accent);
-    border-color: var(--bl-accent);
+/* vlastní styl tlačítka btn-green - funguje stejně jako btn-primary
+   z Bootstrapu, jen má naši zelenou barvu */
+.btn-green {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
     color: #000;
     font-weight: 500;
 }
 
-.btn-accent:hover,
-.btn-accent:focus {
-    background-color: var(--bl-accent-dark);
-    border-color: var(--bl-accent-dark);
+/* po najetí myší (hover) nebo při označení klávesnicí (focus) ztmavne */
+.btn-green:hover,
+.btn-green:focus {
+    background-color: var(--color-green-dark);
+    border-color: var(--color-green-dark);
     color: #000;
 }
 
-.btn-outline-accent {
-    border-color: var(--bl-accent);
-    color: var(--bl-accent);
-}
 
-.btn-outline-accent:hover {
-    background-color: var(--bl-accent);
-    color: #000;
-}
+/* ---------- Záhlaví podstránek a drobečková navigace ---------- */
 
-/* ---------- Page header (subpages) ---------- */
-
+/* tmavý pruh s nadpisem na podstránkách: fotka na pozadí + přes ni
+   poloprůhledná tmavá vrstva (linear-gradient), aby byl bílý text čitelný */
 .page-header {
     background: linear-gradient(rgba(18, 20, 23, .75), rgba(18, 20, 23, .75)),
                 url('./photos/gym-1.jpg') center / cover;
@@ -92,97 +112,122 @@ h1, h2, h3, h4, h5, .navbar-brand {
     padding: 3rem 0 2rem;
 }
 
+/* odkazy v drobečkové navigaci na podstránkách jsou zelené a bez podtržení */
 .page-header .breadcrumb-item a {
-    color: var(--bl-accent);
+    color: var(--color-green);
     text-decoration: none;
 }
 
+/* aktuální stránka a oddělovač "/" v drobečkové navigaci jsou světle šedé */
 .page-header .breadcrumb-item.active,
 .page-header .breadcrumb-item + .breadcrumb-item::before {
     color: #ccc;
 }
 
+/* drobečková navigace na úvodní stránce (pod karuselem) - světle šedý pruh */
 .breadcrumb-bar {
     background-color: #f1f3f5;
 }
 
 .breadcrumb-bar .breadcrumb-item a {
-    color: var(--bl-accent-dark);
+    color: var(--color-green-dark);
     text-decoration: none;
 }
 
-/* ---------- Carousel ---------- */
 
+/* ---------- Karusel na úvodní stránce ---------- */
+
+/* všechny fotky mají stejnou výšku. object-fit: cover = fotka se ořízne,
+   ale nedeformuje. brightness(.6) fotku ztmaví, aby byl vidět bílý text */
 .carousel-item img {
     height: 520px;
     object-fit: cover;
     filter: brightness(.6);
 }
 
+/* text na fotce je posunutý víc doprostřed (Bootstrap ho dává úplně dolů) */
 .carousel-caption {
     bottom: 25%;
 }
 
+/* velký nadpis na fotce, psaný velkými písmeny */
 .carousel-caption h2 {
     font-size: 3rem;
     text-transform: uppercase;
 }
 
-/* ---------- Cards, features ---------- */
 
+/* ---------- Ikony, karty plánů, odznaky ---------- */
+
+/* velké zelené ikony v sekci "Why ByteLift?" a na stránce Nutrition */
 .feature-icon {
     font-size: 2.5rem;
-    color: var(--bl-accent);
+    color: var(--color-green);
 }
 
-.card-plan {
+/* karty plánů na stránce Plans: při najetí myší se plynule (transition)
+   zvednou o 5 px nahoru a dostanou stín */
+.plan-card {
     transition: transform .2s, box-shadow .2s;
 }
 
-.card-plan:hover {
+.plan-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .15);
 }
 
+/* odznak s verzí plánu (v1.0, v2.0, v3.0) - černý se zeleným textem */
 .version-badge {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
-    background-color: var(--bl-dark);
-    color: var(--bl-accent);
+    background-color: var(--color-dark);
+    color: var(--color-green);
 }
 
+/* fotky nahoře v kartách mají stejnou výšku, aby karty byly zarovnané */
 .card-img-top {
     height: 200px;
     object-fit: cover;
 }
 
-/* ---------- Tabs ---------- */
 
+/* ---------- Záložky (tabs) ---------- */
+
+/* text záložek tmavě šedý místo modrého odkazu */
 .nav-tabs .nav-link {
     color: #333;
 }
 
+/* aktivní záložka má nahoře zelenou čáru */
 .nav-tabs .nav-link.active {
-    border-top: 3px solid var(--bl-accent);
+    border-top: 3px solid var(--color-green);
     font-weight: 500;
 }
 
-/* ---------- DataTable ---------- */
 
-/* horizontal scroll for the table on small screens */
+/* ---------- Tabulka DataTables (stránka Exercises) ---------- */
+
+/* na úzkém displeji se tabulka dá posouvat do strany,
+   místo aby se roztáhla mimo obrazovku */
 .dt-layout-table > div {
     overflow-x: auto;
 }
 
-/* ---------- Form ---------- */
 
-/* show the error message under a group of radio buttons / checkboxes */
+/* ---------- Formulář (stránka Contact) ---------- */
+
+/* Bootstrap umí ukázat chybovou hlášku jen pod jedním polem.
+   U skupiny radio tlačítek / checkboxů (div s třídou choice-group) ji
+   ukážeme tímto pravidlem: když je formulář zkontrolovaný (was-validated)
+   a ve skupině je nějaké neplatné pole (:has(input:invalid)), zobraz hlášku. */
 .was-validated .choice-group:has(input:invalid) > .invalid-feedback {
     display: block;
 }
 
-/* ---------- Gallery ---------- */
 
-.gallery-img {
+/* ---------- Galerie ---------- */
+
+/* všechny fotky v galerii mají stejnou výšku a zaoblené rohy */
+.gallery-photo {
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -191,7 +236,9 @@ h1, h2, h3, h4, h5, .navbar-brand {
     transition: opacity .2s;
 }
 
-.gallery-btn {
+/* fotka je uvnitř tlačítka <button>, aby šla otevřít i klávesnicí (Tab + Enter).
+   Tady tlačítku odstraníme jeho vzhled, aby byla vidět jen fotka. */
+.gallery-photo-button {
     display: block;
     width: 100%;
     padding: 0;
@@ -200,32 +247,37 @@ h1, h2, h3, h4, h5, .navbar-brand {
     border-radius: .5rem;
 }
 
-.gallery-btn:focus-visible {
-    outline: 3px solid var(--bl-accent);
+/* zelený rámeček kolem fotky, když na ni přejdu klávesou Tab */
+.gallery-photo-button:focus-visible {
+    outline: 3px solid var(--color-green);
     outline-offset: 3px;
 }
 
-.gallery-img:hover {
+/* po najetí myší fotka lehce zprůhlední */
+.gallery-photo:hover {
     opacity: .8;
 }
 
-/* ---------- Stats strip ---------- */
 
-.stats {
-    background-color: var(--bl-dark);
+/* ---------- Pruh se statistikami (úvodní stránka) ---------- */
+
+.stats-strip {
+    background-color: var(--color-dark);
     color: #fff;
 }
 
-.stats .stat-number {
+/* velká zelená čísla (3, 50+, 120, 24/7) */
+.stats-strip .stat-number {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-size: 2.2rem;
-    color: var(--bl-accent);
+    color: var(--color-green);
 }
 
-/* ---------- Footer ---------- */
+
+/* ---------- Patička ---------- */
 
 footer {
-    background-color: var(--bl-dark);
+    background-color: var(--color-dark);
     color: #aaa;
 }
 
@@ -234,18 +286,28 @@ footer a {
     text-decoration: none;
 }
 
+/* odkaz v patičce po najetí myší zezelená */
 footer a:hover {
-    color: var(--bl-accent);
+    color: var(--color-green);
 }
 
+/* ikony sociálních sítí jsou větší a mají mezi sebou mezeru */
 footer .social a {
     font-size: 1.4rem;
     margin-right: .8rem;
 }
 
-/* ---------- Media queries ---------- */
 
-/* Extra small devices (phones) */
+/* =====================================================================
+   MEDIA QUERIES - úpravy pro různě velké obrazovky
+   ---------------------------------------------------------------------
+   Hranice (breakpointy) jsou stejné jako v Bootstrapu:
+   576 px (sm), 768 px (md), 992 px (lg). Pravidlo uvnitř @media se
+   použije jen tehdy, když obrazovka splňuje podmínku v závorce.
+   Na pořadí záleží: pozdější pravidlo přepíše dřívější.
+   ===================================================================== */
+
+/* Telefony (užší než 576 px): menší karusel, menší nadpisy, menší záhlaví */
 @media (max-width: 575.98px) {
     .carousel-item img {
         height: 300px;
@@ -264,7 +326,8 @@ footer .social a {
     }
 }
 
-/* Very narrow phones (e.g. Galaxy Fold, 280-359 px) */
+/* Velmi úzké telefony (např. Galaxy Fold, 280-359 px):
+   užší šipky karuselu, aby nepřekrývaly text, a ještě menší písmo */
 @media (max-width: 359.98px) {
     .carousel-control-prev,
     .carousel-control-next {
@@ -282,7 +345,7 @@ footer .social a {
     }
 }
 
-/* Small devices (landscape phones) */
+/* Větší telefony (576-767 px): karusel středně vysoký */
 @media (min-width: 576px) and (max-width: 767.98px) {
     .carousel-item img {
         height: 380px;
@@ -292,7 +355,7 @@ footer .social a {
     }
 }
 
-/* Medium devices (tablets) */
+/* Tablety (768-991 px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .carousel-item img {
         height: 450px;
@@ -302,7 +365,10 @@ footer .social a {
     }
 }
 
-/* Phones turned to landscape - low screen height */
+/* Telefon otočený naležato (obrazovka nižší než 500 px a širší než vysoká).
+   Karusel by byl vyšší než displej, proto se jeho výška počítá z výšky okna:
+   100vh = celá výška okna, minus 60 px na menu.
+   Musí být úplně na konci, aby přepsal výšky z pravidel výše. */
 @media (max-height: 500px) and (orientation: landscape) {
     .carousel-item img {
         height: calc(100vh - 60px);
@@ -314,7 +380,8 @@ footer .social a {
     .carousel-caption h2 {
         font-size: 1.6rem;
     }
-    .carousel-caption p:not(.mono) {
+    /* delší text pod nadpisem schováme, aby se vešlo tlačítko */
+    .carousel-caption p:not(.code-font) {
         display: none;
     }
 }

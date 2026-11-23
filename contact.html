@@ -2,12 +2,19 @@
 <html lang="en">
 
 <head>
+  <!-- Kódování znaků (aby fungovala diakritika) a nastavení pro mobily:
+       viewport říká telefonu, ať stránku nezmenšuje, ale zobrazí ji v šířce displeje.
+       Bez tohoto řádku by responzivita na mobilu nefungovala. -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
 
   <title>Order a plan | ByteLift</title>
+  <!-- ikona webu v záložce prohlížeče -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
+  <!-- Styly: 1) Bootstrap 5.3.8, 2) ikony Bootstrap Icons, 3) fonty z Google Fonts,
+       4) náš vlastní style.css - je poslední, aby mohl přepsat pravidla Bootstrapu. -->
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="./icons/bootstrap-icons.css" rel="stylesheet">
 
@@ -20,15 +27,24 @@
 
 <body>
 
+<!-- HLAVIČKA S MENU - stejná na všech stránkách -->
 <header>
+  <!-- navbar = Bootstrap komponenta menu
+       navbar-expand-lg = od šířky 992 px (lg) je menu v řádku, na menších displejích se schová pod "hamburger" tlačítko
+       navbar-dark = světlý text pro tmavé pozadí, sticky-top = menu zůstává nahoře při scrollování -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
+      <!-- Logo: ikona procesoru + text ByteLift, slovo "Byte" je zelené (třída logo-highlight) -->
       <a class="navbar-brand" href="./index.html">
-        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+        <i class="bi bi-cpu"></i> <span class="logo-highlight">Byte</span>Lift
       </a>
+      <!-- "Hamburger" tlačítko - vidět jen na mobilu/tabletu. Po kliknutí rozbalí
+           prvek s id="navbarCollapse" (data-bs-target), JavaScript k tomu dodává Bootstrap. -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <!-- Položky menu. ms-auto = odsune menu doprava. Každá položka má ikonu (<i class="bi ...">).
+           Třída active + aria-current označuje stránku, na které právě jsem. -->
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -57,7 +73,9 @@
 
 <main>
 
-  <!-- Page header with breadcrumb -->
+  <!-- ZÁHLAVÍ PODSTRÁNKY: tmavý pruh s fotkou (třída page-header ve style.css),
+       drobečková navigace (breadcrumb = kde se nacházím: Home / název stránky),
+       nadpis stránky a krátký popis -->
   <div class="page-header">
     <div class="container">
       <nav aria-label="breadcrumb">
@@ -73,18 +91,25 @@
   <div class="container my-5">
     <div class="row gy-5 gx-lg-5">
 
-      <!-- Order form -->
+      <!-- OBJEDNÁVKOVÝ FORMULÁŘ (vlevo, col-lg-8 = 8 z 12 sloupců na velkém displeji) -->
       <div class="col-lg-8">
         <h2 class="mb-3">Personal plan order</h2>
         <p>Fill in the form below. Fields marked with <span class="text-danger">*</span> are required.</p>
 
+        <!-- zelená hláška po úspěšném uložení. d-none = na začátku schovaná, ukáže ji JavaScript -->
         <div class="alert alert-success d-none" id="formSuccess" role="alert">
           <i class="bi bi-check2-circle"></i> <strong>Saved!</strong> Thank you, we will send your personal plan within 48 hours.
         </div>
 
+        <!-- novalidate = vypne výchozí bubliny prohlížeče, chyby místo nich ukazuje Bootstrap (invalid-feedback).
+             Pravidla jsou přímo u polí: required = povinné, min/max = rozsah čísla,
+             pattern = povolené znaky, maxlength = maximální délka textu.
+             Každé pole má <label for="..."> - kliknutím na popisek se označí pole. -->
         <form id="orderForm" class="needs-validation" novalidate>
 
-          <h3 class="h5 mt-4 border-bottom pb-2"><i class="bi bi-person text-accent"></i> Personal information</h3>
+          <!-- Osobní údaje. Jméno: pattern povolí jen písmena (i s diakritikou), mezery, pomlčku a apostrof.
+               E-mail a telefon jsou v "input group" = pole s ikonou nebo předvolbou +420 vedle sebe. -->
+          <h3 class="h5 mt-4 border-bottom pb-2"><i class="bi bi-person text-green"></i> Personal information</h3>
           <div class="row g-3">
             <div class="col-md-6">
               <label for="firstName" class="form-label">First name <span class="text-danger">*</span></label>
@@ -113,6 +138,8 @@
               </div>
               <div class="form-text">Optional, 9 digits.</div>
             </div>
+            <!-- Radio tlačítka: mají stejné name="sex", takže jde vybrat jen jedno.
+                 Třída choice-group = ve style.css se díky ní ukáže chybová hláška pod celou skupinou. -->
             <div class="col-md-6 choice-group">
               <label class="form-label d-block">Sex <span class="text-danger">*</span></label>
               <div class="form-check form-check-inline">
@@ -136,7 +163,9 @@
             </div>
           </div>
 
-          <h3 class="h5 mt-5 border-bottom pb-2"><i class="bi bi-rulers text-accent"></i> Body parameters</h3>
+          <!-- Tělesné parametry: číselná pole s jednotkou (cm, kg) pomocí input group.
+               step="1" = jen celá čísla, step="0.1" = jedno desetinné místo. -->
+          <h3 class="h5 mt-5 border-bottom pb-2"><i class="bi bi-rulers text-green"></i> Body parameters</h3>
           <div class="row g-3">
             <div class="col-md-6">
               <label for="height" class="form-label">Height <span class="text-danger">*</span></label>
@@ -156,7 +185,9 @@
             </div>
           </div>
 
-          <h3 class="h5 mt-5 border-bottom pb-2"><i class="bi bi-trophy text-accent"></i> Goals and training</h3>
+          <!-- Cíle a trénink: select (rozbalovací nabídka), radio, checkboxy, posuvník (range),
+               výběr data a textové pole (textarea). Kontrolu "aspoň jeden den" a rozsah data řeší JavaScript dole. -->
+          <h3 class="h5 mt-5 border-bottom pb-2"><i class="bi bi-trophy text-green"></i> Goals and training</h3>
           <div class="row g-3">
             <div class="col-md-6">
               <label for="goal" class="form-label">Main goal <span class="text-danger">*</span></label>
@@ -227,7 +258,7 @@
               <div class="invalid-feedback">Please select at least one day.</div>
             </div>
             <div class="col-md-6">
-              <label for="sessionLength" class="form-label">Session length: <span id="sessionLengthValue" class="mono">60</span> min</label>
+              <label for="sessionLength" class="form-label">Session length: <span id="sessionLengthValue" class="code-font">60</span> min</label>
               <input type="range" class="form-range" id="sessionLength" min="30" max="120" step="15" value="60">
             </div>
             <div class="col-md-6">
@@ -256,21 +287,23 @@
             </div>
           </div>
 
+          <!-- Tlačítka na konci formuláře: Save (type="submit" = odešle/zkontroluje formulář)
+               a Reset (type="reset" = vymaže všechna pole) -->
           <div class="mt-4 d-flex gap-2">
-            <button type="submit" class="btn btn-accent btn-lg"><i class="bi bi-save2"></i> Save</button>
+            <button type="submit" class="btn btn-green btn-lg"><i class="bi bi-save2"></i> Save</button>
             <button type="reset" class="btn btn-outline-secondary btn-lg"><i class="bi bi-eraser"></i> Reset</button>
           </div>
         </form>
       </div>
 
-      <!-- Contact info -->
+      <!-- KONTAKTNÍ ÚDAJE (vpravo, col-lg-4). Na mobilu jsou pod formulářem. -->
       <div class="col-lg-4">
         <div class="card border-0 bg-light">
           <div class="card-body">
             <h2 class="h4 card-title mb-3">Contact</h2>
-            <p><i class="bi bi-geo-alt text-accent"></i> ByteLift Gym<br>Sportovní 42<br>700 30 Ostrava</p>
-            <p><i class="bi bi-telephone text-accent"></i> <a href="tel:+420123456789" class="link-dark">+420 123 456 789</a></p>
-            <p><i class="bi bi-envelope text-accent"></i> <a href="mailto:info@bytelift.example" class="link-dark">info@bytelift.example</a></p>
+            <p><i class="bi bi-geo-alt text-green"></i> ByteLift Gym<br>Sportovní 42<br>700 30 Ostrava</p>
+            <p><i class="bi bi-telephone text-green"></i> <a href="tel:+420123456789" class="link-dark">+420 123 456 789</a></p>
+            <p><i class="bi bi-envelope text-green"></i> <a href="mailto:info@bytelift.example" class="link-dark">info@bytelift.example</a></p>
             <h3 class="h5 mt-4">Opening hours</h3>
             <table class="table table-sm mb-0">
               <tbody>
@@ -290,11 +323,13 @@
 
 </main>
 
+<!-- PATIČKA - stejná na všech stránkách
+     row-cols-1 row-cols-md-3 = na mobilu 1 sloupec pod sebou, od 768 px (md) 3 sloupce vedle sebe -->
 <footer class="pt-4 pb-3 mt-auto">
   <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-3">
       <div class="col">
-        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <h5 class="text-white"><i class="bi bi-cpu text-green"></i> <span class="logo-highlight">Byte</span>Lift</h5>
         <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
       </div>
       <div class="col">
@@ -320,70 +355,143 @@
   </div>
 </footer>
 
+<!-- JavaScript Bootstrapu - díky němu fungují menu na mobilu, karusel, záložky,
+     modální okna a akordeon. Načítá se až na konci, aby se nejdřív zobrazil obsah. -->
 <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Vlastní JavaScript pro formulář. Data se nikam neodesílají
+     (statický web nemá server), skript jen kontroluje vyplnění. -->
 <script>
-  const form = document.getElementById('orderForm');
-  const range = document.getElementById('sessionLength');
-  const rangeValue = document.getElementById('sessionLengthValue');
-  const note = document.getElementById('note');
-  const noteCount = document.getElementById('noteCount');
-  const startDate = document.getElementById('startDate');
-  const dayBoxes = document.querySelectorAll('input[name="days"]');
-  const success = document.getElementById('formSuccess');
+  // ---------- 1. Najdeme si prvky formuláře podle jejich id ----------
+  const orderForm = document.getElementById('orderForm');
+  const successMessage = document.getElementById('formSuccess');
+  const sessionLengthSlider = document.getElementById('sessionLength');
+  const sessionLengthText = document.getElementById('sessionLengthValue');
+  const noteField = document.getElementById('note');
+  const noteCharacterCount = document.getElementById('noteCount');
+  const startDateField = document.getElementById('startDate');
+  const trainingDayCheckboxes = document.querySelectorAll('input[name="days"]');
 
-  // show the value of the range input and the length of the note
-  range.addEventListener('input', function () { rangeValue.textContent = range.value; });
-  note.addEventListener('input', function () { noteCount.textContent = note.value.length; });
 
-  // start date: from today up to one year ahead
-  function isoDate(d) {
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return d.getFullYear() + '-' + m + '-' + day;
+  // ---------- 2. Posuvník délky tréninku ----------
+  // Při každém posunutí přepíše číslo v popisku ("Session length: 60 min").
+  function showSessionLength() {
+    sessionLengthText.textContent = sessionLengthSlider.value;
   }
-  const today = new Date();
-  const nextYear = new Date();
-  nextYear.setFullYear(today.getFullYear() + 1);
-  startDate.min = isoDate(today);
-  startDate.max = isoDate(nextYear);
+  sessionLengthSlider.addEventListener('input', showSessionLength);
 
-  // at least one training day must be selected
-  function checkDays() {
-    const anyChecked = Array.from(dayBoxes).some(function (box) { return box.checked; });
-    dayBoxes.forEach(function (box) { box.setCustomValidity(anyChecked ? '' : 'Select at least one day'); });
+
+  // ---------- 3. Počítadlo znaků v poznámce ----------
+  // Při psaní ukazuje, kolik znaků z 1000 je už napsáno.
+  function showNoteLength() {
+    noteCharacterCount.textContent = noteField.value.length;
   }
-  dayBoxes.forEach(function (box) { box.addEventListener('change', checkDays); });
-  checkDays();
+  noteField.addEventListener('input', showNoteLength);
 
-  // Bootstrap form validation, no data is sent anywhere (static website)
-  form.addEventListener('submit', function (event) {
+
+  // ---------- 4. Povolený rozsah data začátku ----------
+  // Pole typu date chce datum ve tvaru RRRR-MM-DD (např. 2026-11-23).
+  // Tahle funkce převede datum z JavaScriptu na tento text.
+  function formatDateForInput(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // měsíce se počítají od 0
+    const day = String(date.getDate()).padStart(2, '0');        // padStart doplní nulu: 5 -> 05
+    return year + '-' + month + '-' + day;
+  }
+
+  // Nejdřívější možné datum je dnešek, nejpozdější za rok.
+  // Prohlížeč pak sám odmítne datum mimo tento rozsah (atributy min a max).
+  function setAllowedStartDates() {
+    const today = new Date();
+    const oneYearFromToday = new Date();
+    oneYearFromToday.setFullYear(today.getFullYear() + 1);
+
+    startDateField.min = formatDateForInput(today);
+    startDateField.max = formatDateForInput(oneYearFromToday);
+  }
+  setAllowedStartDates();
+
+
+  // ---------- 5. Aspoň jeden tréninkový den ----------
+  // HTML neumí napsat "aspoň jeden checkbox ze skupiny musí být zaškrtnutý",
+  // proto to kontrolujeme sami. Když není zaškrtnutý žádný den, označíme
+  // checkboxy jako neplatné (setCustomValidity s textem chyby).
+  // Prázdný text '' znamená "v pořádku".
+  function checkAtLeastOneDaySelected() {
+    let isAnyDaySelected = false;
+    trainingDayCheckboxes.forEach(function (checkbox) {
+      if (checkbox.checked) {
+        isAnyDaySelected = true;
+      }
+    });
+
+    trainingDayCheckboxes.forEach(function (checkbox) {
+      if (isAnyDaySelected) {
+        checkbox.setCustomValidity('');
+      } else {
+        checkbox.setCustomValidity('Select at least one day');
+      }
+    });
+  }
+
+  // kontrola proběhne při každém zaškrtnutí / odškrtnutí dne a hned při načtení stránky
+  trainingDayCheckboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', checkAtLeastOneDaySelected);
+  });
+  checkAtLeastOneDaySelected();
+
+
+  // ---------- 6. Kliknutí na tlačítko Save (odeslání formuláře) ----------
+  function handleFormSubmit(event) {
+    // zabráníme výchozímu chování (odeslání a znovunačtení stránky)
     event.preventDefault();
-    checkDays();
-    if (form.checkValidity()) {
-      success.classList.remove('d-none');
-      form.reset();
+    checkAtLeastOneDaySelected();
+
+    // checkValidity() zkontroluje všechna pravidla z HTML
+    // (required, min, max, pattern, maxlength, type="email" ...)
+    if (orderForm.checkValidity()) {
+      // vše je v pořádku: ukážeme zelenou hlášku a formulář vymažeme
+      successMessage.classList.remove('d-none');
+      orderForm.reset();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      success.classList.add('d-none');
-      form.classList.add('was-validated');
-      // move the user to the first wrong field
-      const firstInvalid = form.querySelector(':invalid');
-      if (firstInvalid) { firstInvalid.focus(); }
+      // něco je špatně: třída was-validated řekne Bootstrapu,
+      // ať ukáže červené rámečky a chybové hlášky (invalid-feedback)
+      successMessage.classList.add('d-none');
+      orderForm.classList.add('was-validated');
+
+      // kurzor přesuneme do prvního špatně vyplněného pole
+      const firstInvalidField = orderForm.querySelector(':invalid');
+      if (firstInvalidField) {
+        firstInvalidField.focus();
+      }
     }
-  });
+  }
+  orderForm.addEventListener('submit', handleFormSubmit);
 
-  // after Reset clear the error messages and update the texts
-  form.addEventListener('reset', function () {
-    form.classList.remove('was-validated');
+
+  // ---------- 7. Kliknutí na tlačítko Reset ----------
+  // Prohlížeč pole vymaže sám, my navíc schováme chybové hlášky
+  // a aktualizujeme texty u posuvníku a poznámky.
+  function handleFormReset() {
+    orderForm.classList.remove('was-validated');
+
+    // setTimeout s 0: počkáme, až prohlížeč pole opravdu vymaže,
+    // a teprve pak přečteme nové hodnoty
     setTimeout(function () {
-      rangeValue.textContent = range.value;
-      noteCount.textContent = note.value.length;
-      checkDays();
+      showSessionLength();
+      showNoteLength();
+      checkAtLeastOneDaySelected();
     }, 0);
-  });
+  }
+  orderForm.addEventListener('reset', handleFormReset);
 
-  // hide the success message when the user starts filling the form again
-  form.addEventListener('input', function () { success.classList.add('d-none'); });
+
+  // ---------- 8. Schování zelené hlášky ----------
+  // Jakmile uživatel začne formulář vyplňovat znovu, hláška "Saved!" zmizí.
+  function hideSuccessMessage() {
+    successMessage.classList.add('d-none');
+  }
+  orderForm.addEventListener('input', hideSuccessMessage);
 </script>
 
 </body>

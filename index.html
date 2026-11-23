@@ -2,12 +2,19 @@
 <html lang="en">
 
 <head>
+  <!-- Kódování znaků (aby fungovala diakritika) a nastavení pro mobily:
+       viewport říká telefonu, ať stránku nezmenšuje, ale zobrazí ji v šířce displeje.
+       Bez tohoto řádku by responzivita na mobilu nefungovala. -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
 
   <title>ByteLift | Upgrade your body</title>
+  <!-- ikona webu v záložce prohlížeče -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
+  <!-- Styly: 1) Bootstrap 5.3.8, 2) ikony Bootstrap Icons, 3) fonty z Google Fonts,
+       4) náš vlastní style.css - je poslední, aby mohl přepsat pravidla Bootstrapu. -->
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="./icons/bootstrap-icons.css" rel="stylesheet">
 
@@ -20,15 +27,24 @@
 
 <body>
 
+<!-- HLAVIČKA S MENU - stejná na všech stránkách -->
 <header>
+  <!-- navbar = Bootstrap komponenta menu
+       navbar-expand-lg = od šířky 992 px (lg) je menu v řádku, na menších displejích se schová pod "hamburger" tlačítko
+       navbar-dark = světlý text pro tmavé pozadí, sticky-top = menu zůstává nahoře při scrollování -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
+      <!-- Logo: ikona procesoru + text ByteLift, slovo "Byte" je zelené (třída logo-highlight) -->
       <a class="navbar-brand" href="./index.html">
-        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+        <i class="bi bi-cpu"></i> <span class="logo-highlight">Byte</span>Lift
       </a>
+      <!-- "Hamburger" tlačítko - vidět jen na mobilu/tabletu. Po kliknutí rozbalí
+           prvek s id="navbarCollapse" (data-bs-target), JavaScript k tomu dodává Bootstrap. -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <!-- Položky menu. ms-auto = odsune menu doprava. Každá položka má ikonu (<i class="bi ...">).
+           Třída active + aria-current označuje stránku, na které právě jsem. -->
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -57,7 +73,11 @@
 
 <main>
 
-  <!-- Carousel -->
+  <!-- KARUSEL (Bootstrap Carousel): 3 fotky, které se samy střídají.
+       data-bs-ride="carousel" = spustí se automaticky po načtení,
+       data-bs-interval="5000" u každé fotky = přepne se po 5 sekundách.
+       carousel-indicators = čárky dole, carousel-control-prev/next = šipky do stran,
+       carousel-caption = text a tlačítko přes fotku -->
   <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -68,16 +88,16 @@
       <div class="carousel-item active" data-bs-interval="5000">
         <img src="./photos/hero-1.jpg" class="d-block w-100" alt="Woman standing in a gym surrounded by equipment">
         <div class="carousel-caption">
-          <p class="mono text-accent mb-1">&gt; boot --body</p>
+          <p class="code-font text-green mb-1">&gt; boot --body</p>
           <h2>Upgrade your body</h2>
           <p class="d-none d-sm-block">Training plans built like software &ndash; versioned, tested and always improving.</p>
-          <a href="./plans.html" class="btn btn-accent btn-lg"><i class="bi bi-play-fill"></i> Start training</a>
+          <a href="./plans.html" class="btn btn-green btn-lg"><i class="bi bi-play-fill"></i> Start training</a>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
         <img src="./photos/hero-2.jpg" class="d-block w-100" alt="Person preparing to lift a barbell">
         <div class="carousel-caption">
-          <p class="mono text-accent mb-1">&gt; load exercises.db</p>
+          <p class="code-font text-green mb-1">&gt; load exercises.db</p>
           <h2>50+ exercises</h2>
           <p class="d-none d-sm-block">Search, sort and filter our exercise database by muscle group or equipment.</p>
           <a href="./exercises.html" class="btn btn-outline-light btn-lg"><i class="bi bi-table"></i> Browse database</a>
@@ -86,10 +106,10 @@
       <div class="carousel-item" data-bs-interval="5000">
         <img src="./photos/hero-3.jpg" class="d-block w-100" alt="Weightlifting equipment in an industrial gym">
         <div class="carousel-caption">
-          <p class="mono text-accent mb-1">&gt; git commit -m "new PR"</p>
+          <p class="code-font text-green mb-1">&gt; git commit -m "new PR"</p>
           <h2>Your personal plan</h2>
           <p class="d-none d-sm-block">Tell us your goals and get a plan tailored exactly to you.</p>
-          <a href="./contact.html" class="btn btn-accent btn-lg"><i class="bi bi-send"></i> Order a plan</a>
+          <a href="./contact.html" class="btn btn-green btn-lg"><i class="bi bi-send"></i> Order a plan</a>
         </div>
       </div>
     </div>
@@ -103,7 +123,8 @@
     </button>
   </div>
 
-  <!-- Breadcrumb -->
+  <!-- DROBEČKOVÁ NAVIGACE (breadcrumb): ukazuje, kde se uživatel nachází.
+       Na úvodní stránce je jen "Home", na podstránkách "Home / název stránky". -->
   <div class="breadcrumb-bar py-2">
     <div class="container">
       <nav aria-label="breadcrumb">
@@ -114,11 +135,14 @@
     </div>
   </div>
 
-  <!-- Intro -->
+  <!-- ÚVOD: text vlevo, fotka vpravo.
+       col-lg-6 = od 992 px každá polovina zabere 6 z 12 sloupců (vedle sebe),
+       na menších displejích je každá přes celou šířku (pod sebou).
+       img-fluid = obrázek se zmenší podle šířky displeje a nepřeteče -->
   <div class="container my-5">
     <div class="row align-items-center g-4">
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold">Welcome to <span class="text-accent">Byte</span>Lift</h1>
+        <h1 class="display-5 fw-bold">Welcome to <span class="text-green">Byte</span>Lift</h1>
         <p class="lead">
           ByteLift is a fitness project for people who like clear systems. We treat training
           the same way programmers treat code: start with a simple version, measure the results
@@ -138,7 +162,8 @@
     </div>
   </div>
 
-  <!-- Features -->
+  <!-- VÝHODY: 4 bloky s ikonou.
+       row-cols-1 row-cols-sm-2 row-cols-lg-4 = 1 sloupec na mobilu, 2 od 576 px, 4 od 992 px -->
   <div class="bg-light py-5">
     <div class="container">
       <h2 class="text-center mb-4">Why ByteLift?</h2>
@@ -167,11 +192,13 @@
     </div>
   </div>
 
-  <!-- Tabs with plan levels -->
+  <!-- ZÁLOŽKY (Bootstrap Navs & tabs): 3 úrovně plánu Beginner / Advanced / Expert.
+       Každé tlačítko záložky má data-bs-target="#..." = id panelu, který se po kliknutí zobrazí. -->
   <div class="container my-5">
     <h2 class="text-center mb-2">Choose your version</h2>
     <p class="text-center text-muted mb-4">Every level is a new release. Pick the one that matches your experience.</p>
 
+    <!-- hlavičky záložek (na co se kliká) -->
     <ul class="nav nav-tabs justify-content-center" id="levelTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="beginner-tab" data-bs-toggle="tab" data-bs-target="#beginner-pane" type="button" role="tab" aria-controls="beginner-pane" aria-selected="true">
@@ -190,6 +217,8 @@
       </li>
     </ul>
 
+    <!-- obsah záložek: vidět je vždy jen panel s třídami "show active", ostatní jsou schované.
+         Tlačítko "Show details" otevře modální okno (data-bs-toggle="modal"). -->
     <div class="tab-content border border-top-0 rounded-bottom p-4" id="levelTabContent">
       <div class="tab-pane fade show active" id="beginner-pane" role="tabpanel" aria-labelledby="beginner-tab" tabindex="0">
         <div class="row g-4 align-items-center">
@@ -208,7 +237,7 @@
               <li><i class="bi bi-check2-circle text-success"></i> Machines and dumbbells</li>
               <li><i class="bi bi-check2-circle text-success"></i> Duration: 8 weeks</li>
             </ul>
-            <button type="button" class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#planModalV1">
+            <button type="button" class="btn btn-green" data-bs-toggle="modal" data-bs-target="#planModalV1">
               <i class="bi bi-info-circle"></i> Show details
             </button>
           </div>
@@ -265,8 +294,8 @@
     </div>
   </div>
 
-  <!-- Stats -->
-  <div class="stats py-5">
+  <!-- STATISTIKY: tmavý pruh se 4 čísly. row-cols-2 row-cols-md-4 = 2×2 na mobilu, 4 vedle sebe od 768 px -->
+  <div class="stats-strip py-5">
     <div class="container">
       <div class="row row-cols-2 row-cols-md-4 g-4 text-center">
         <div class="col">
@@ -289,17 +318,23 @@
     </div>
   </div>
 
-  <!-- Call to action -->
+  <!-- VÝZVA K AKCI: krátký text a tlačítka v různých stylech (btn-green = náš vlastní styl, btn-outline-dark = jen obrys) -->
   <div class="container my-5 text-center">
     <h2>Ready to deploy a new you?</h2>
     <p class="lead text-muted">Fill in a short form and get a personal training plan within 48 hours.</p>
-    <a href="./contact.html" class="btn btn-accent btn-lg me-2 mb-2"><i class="bi bi-send"></i> Order a plan</a>
+    <a href="./contact.html" class="btn btn-green btn-lg me-2 mb-2"><i class="bi bi-send"></i> Order a plan</a>
     <a href="./exercises.html" class="btn btn-outline-dark btn-lg mb-2"><i class="bi bi-table"></i> Exercise database</a>
   </div>
 
 </main>
 
-<!-- Modal v1.0 -->
+<!-- MODÁLNÍ OKNA (Bootstrap Modal) - detail plánů. Na stránce jsou schovaná,
+     otevře je tlačítko s data-bs-target="#planModalV1" (V2, V3).
+     modal-dialog-centered = okno je uprostřed obrazovky,
+     modal-fullscreen-md-down = na mobilu a tabletu přes celou obrazovku.
+     Okno se zavírá křížkem nebo tlačítkem s data-bs-dismiss="modal". -->
+
+<!-- Modal v1.0 - plán pro začátečníky -->
 <div class="modal fade" id="planModalV1" tabindex="-1" aria-labelledby="planModalV1Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-md-down">
     <div class="modal-content">
@@ -325,13 +360,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="./contact.html" class="btn btn-accent">Order this plan</a>
+        <a href="./contact.html" class="btn btn-green">Order this plan</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal v2.0 -->
+<!-- Modal v2.0 - plán pro pokročilé -->
 <div class="modal fade" id="planModalV2" tabindex="-1" aria-labelledby="planModalV2Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-md-down">
     <div class="modal-content">
@@ -361,7 +396,7 @@
   </div>
 </div>
 
-<!-- Modal v3.0 -->
+<!-- Modal v3.0 - plán pro experty -->
 <div class="modal fade" id="planModalV3" tabindex="-1" aria-labelledby="planModalV3Label" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-md-down">
     <div class="modal-content">
@@ -391,11 +426,13 @@
   </div>
 </div>
 
+<!-- PATIČKA - stejná na všech stránkách
+     row-cols-1 row-cols-md-3 = na mobilu 1 sloupec pod sebou, od 768 px (md) 3 sloupce vedle sebe -->
 <footer class="pt-4 pb-3 mt-auto">
   <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-3">
       <div class="col">
-        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <h5 class="text-white"><i class="bi bi-cpu text-green"></i> <span class="logo-highlight">Byte</span>Lift</h5>
         <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
       </div>
       <div class="col">
@@ -421,6 +458,8 @@
   </div>
 </footer>
 
+<!-- JavaScript Bootstrapu - díky němu fungují menu na mobilu, karusel, záložky,
+     modální okna a akordeon. Načítá se až na konci, aby se nejdřív zobrazil obsah. -->
 <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>

@@ -2,12 +2,19 @@
 <html lang="en">
 
 <head>
+  <!-- Kódování znaků (aby fungovala diakritika) a nastavení pro mobily:
+       viewport říká telefonu, ať stránku nezmenšuje, ale zobrazí ji v šířce displeje.
+       Bez tohoto řádku by responzivita na mobilu nefungovala. -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
 
   <title>Training plans | ByteLift</title>
+  <!-- ikona webu v záložce prohlížeče -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
+  <!-- Styly: 1) Bootstrap 5.3.8, 2) ikony Bootstrap Icons, 3) fonty z Google Fonts,
+       4) náš vlastní style.css - je poslední, aby mohl přepsat pravidla Bootstrapu. -->
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="./icons/bootstrap-icons.css" rel="stylesheet">
 
@@ -20,15 +27,24 @@
 
 <body>
 
+<!-- HLAVIČKA S MENU - stejná na všech stránkách -->
 <header>
+  <!-- navbar = Bootstrap komponenta menu
+       navbar-expand-lg = od šířky 992 px (lg) je menu v řádku, na menších displejích se schová pod "hamburger" tlačítko
+       navbar-dark = světlý text pro tmavé pozadí, sticky-top = menu zůstává nahoře při scrollování -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
+      <!-- Logo: ikona procesoru + text ByteLift, slovo "Byte" je zelené (třída logo-highlight) -->
       <a class="navbar-brand" href="./index.html">
-        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+        <i class="bi bi-cpu"></i> <span class="logo-highlight">Byte</span>Lift
       </a>
+      <!-- "Hamburger" tlačítko - vidět jen na mobilu/tabletu. Po kliknutí rozbalí
+           prvek s id="navbarCollapse" (data-bs-target), JavaScript k tomu dodává Bootstrap. -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <!-- Položky menu. ms-auto = odsune menu doprava. Každá položka má ikonu (<i class="bi ...">).
+           Třída active + aria-current označuje stránku, na které právě jsem. -->
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -57,7 +73,9 @@
 
 <main>
 
-  <!-- Page header with breadcrumb -->
+  <!-- ZÁHLAVÍ PODSTRÁNKY: tmavý pruh s fotkou (třída page-header ve style.css),
+       drobečková navigace (breadcrumb = kde se nacházím: Home / název stránky),
+       nadpis stránky a krátký popis -->
   <div class="page-header">
     <div class="container">
       <nav aria-label="breadcrumb">
@@ -70,16 +88,18 @@
       <p class="lead mb-0">Pick a version, follow the schedule, track your progress.</p>
     </div>
   </div>
+  <!-- KARTY PLÁNŮ (Bootstrap Card): 3 karty vedle sebe od 768 px (row-cols-md-3), na mobilu pod sebou.
+       h-100 = všechny karty jsou stejně vysoké. Třída plan-card přidává efekt při najetí myší (style.css). -->
   <div class="container my-5">
     <p class="lead">
-      Every ByteLift plan works like a software release. You start with <span class="mono">v1.0</span>,
+      Every ByteLift plan works like a software release. You start with <span class="code-font">v1.0</span>,
       and when you are ready, you upgrade. Each plan includes a weekly schedule, exercise list with sets
       and reps, and simple rules for progression.
     </p>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
       <div class="col">
-        <div class="card h-100 card-plan">
+        <div class="card h-100 plan-card">
           <img src="./photos/gym-4.jpg" class="card-img-top" alt="Man carrying a dumbbell">
           <div class="card-body">
             <span class="badge version-badge mb-2">v1.0</span>
@@ -93,12 +113,12 @@
           </div>
           <div class="card-footer bg-transparent border-0 pb-3">
             <p class="fs-4 fw-bold mb-2">Free</p>
-            <a href="./contact.html" class="btn btn-accent w-100"><i class="bi bi-download"></i> Get v1.0</a>
+            <a href="./contact.html" class="btn btn-green w-100"><i class="bi bi-download"></i> Get v1.0</a>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card h-100 card-plan border-primary">
+        <div class="card h-100 plan-card border-primary">
           <img src="./photos/gym-6.jpg" class="card-img-top" alt="Man lifting a barbell">
           <div class="card-body">
             <span class="badge version-badge mb-2">v2.0</span>
@@ -118,7 +138,7 @@
         </div>
       </div>
       <div class="col">
-        <div class="card h-100 card-plan">
+        <div class="card h-100 plan-card">
           <img src="./photos/gym-2.jpg" class="card-img-top" alt="Grayscale photo of a man working out">
           <div class="card-body">
             <span class="badge version-badge mb-2">v3.0</span>
@@ -139,7 +159,9 @@
     </div>
   </div>
 
-  <!-- Weekly schedule -->
+  <!-- TÝDENNÍ ROZPIS: běžná tabulka (Bootstrap Tables).
+       table-responsive = na úzkém displeji se tabulka posouvá do strany a nerozbije stránku.
+       table-secondary / table-success = barevné buňky (odpočinek / kardio) -->
   <div class="bg-light py-5">
     <div class="container">
       <h2 class="mb-3">Weekly schedule</h2>
@@ -160,7 +182,7 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row" class="mono">v1.0</th>
+              <th scope="row" class="code-font">v1.0</th>
               <td>Full body</td>
               <td class="table-secondary">Rest</td>
               <td>Full body</td>
@@ -170,7 +192,7 @@
               <td class="table-secondary">Rest</td>
             </tr>
             <tr>
-              <th scope="row" class="mono">v2.0</th>
+              <th scope="row" class="code-font">v2.0</th>
               <td>Upper A</td>
               <td>Lower A</td>
               <td class="table-secondary">Rest</td>
@@ -180,7 +202,7 @@
               <td class="table-secondary">Rest</td>
             </tr>
             <tr>
-              <th scope="row" class="mono">v3.0</th>
+              <th scope="row" class="code-font">v3.0</th>
               <td>Push</td>
               <td>Pull</td>
               <td>Legs</td>
@@ -195,7 +217,9 @@
     </div>
   </div>
 
-  <!-- FAQ accordion -->
+  <!-- ČASTÉ OTÁZKY (Bootstrap Accordion): po kliknutí na otázku se rozbalí odpověď.
+       data-bs-parent="#faqAccordion" = otevřená může být vždy jen jedna odpověď,
+       první odpověď je otevřená hned (třída show). -->
   <div class="container my-5">
     <h2 class="mb-3">Frequently asked questions</h2>
     <div class="accordion" id="faqAccordion">
@@ -256,11 +280,13 @@
 
 </main>
 
+<!-- PATIČKA - stejná na všech stránkách
+     row-cols-1 row-cols-md-3 = na mobilu 1 sloupec pod sebou, od 768 px (md) 3 sloupce vedle sebe -->
 <footer class="pt-4 pb-3 mt-auto">
   <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-3">
       <div class="col">
-        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <h5 class="text-white"><i class="bi bi-cpu text-green"></i> <span class="logo-highlight">Byte</span>Lift</h5>
         <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
       </div>
       <div class="col">
@@ -286,6 +312,8 @@
   </div>
 </footer>
 
+<!-- JavaScript Bootstrapu - díky němu fungují menu na mobilu, karusel, záložky,
+     modální okna a akordeon. Načítá se až na konci, aby se nejdřív zobrazil obsah. -->
 <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>

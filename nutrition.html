@@ -2,12 +2,19 @@
 <html lang="en">
 
 <head>
+  <!-- Kódování znaků (aby fungovala diakritika) a nastavení pro mobily:
+       viewport říká telefonu, ať stránku nezmenšuje, ale zobrazí ji v šířce displeje.
+       Bez tohoto řádku by responzivita na mobilu nefungovala. -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
 
   <title>Nutrition | ByteLift</title>
+  <!-- ikona webu v záložce prohlížeče -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
+  <!-- Styly: 1) Bootstrap 5.3.8, 2) ikony Bootstrap Icons, 3) fonty z Google Fonts,
+       4) náš vlastní style.css - je poslední, aby mohl přepsat pravidla Bootstrapu. -->
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="./icons/bootstrap-icons.css" rel="stylesheet">
 
@@ -20,15 +27,24 @@
 
 <body>
 
+<!-- HLAVIČKA S MENU - stejná na všech stránkách -->
 <header>
+  <!-- navbar = Bootstrap komponenta menu
+       navbar-expand-lg = od šířky 992 px (lg) je menu v řádku, na menších displejích se schová pod "hamburger" tlačítko
+       navbar-dark = světlý text pro tmavé pozadí, sticky-top = menu zůstává nahoře při scrollování -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
+      <!-- Logo: ikona procesoru + text ByteLift, slovo "Byte" je zelené (třída logo-highlight) -->
       <a class="navbar-brand" href="./index.html">
-        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+        <i class="bi bi-cpu"></i> <span class="logo-highlight">Byte</span>Lift
       </a>
+      <!-- "Hamburger" tlačítko - vidět jen na mobilu/tabletu. Po kliknutí rozbalí
+           prvek s id="navbarCollapse" (data-bs-target), JavaScript k tomu dodává Bootstrap. -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <!-- Položky menu. ms-auto = odsune menu doprava. Každá položka má ikonu (<i class="bi ...">).
+           Třída active + aria-current označuje stránku, na které právě jsem. -->
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -57,7 +73,9 @@
 
 <main>
 
-  <!-- Page header with breadcrumb -->
+  <!-- ZÁHLAVÍ PODSTRÁNKY: tmavý pruh s fotkou (třída page-header ve style.css),
+       drobečková navigace (breadcrumb = kde se nacházím: Home / název stránky),
+       nadpis stránky a krátký popis -->
   <div class="page-header">
     <div class="container">
       <nav aria-label="breadcrumb">
@@ -70,6 +88,7 @@
       <p class="lead mb-0">Fuel for your training &ndash; simple rules that work.</p>
     </div>
   </div>
+  <!-- ÚVOD: text vlevo (col-lg-7), fotka vpravo (col-lg-5), na mobilu pod sebou -->
   <div class="container my-5">
     <div class="row g-4 align-items-center">
       <div class="col-lg-7">
@@ -90,7 +109,7 @@
     </div>
   </div>
 
-  <!-- Macronutrients -->
+  <!-- MAKROŽIVINY: 3 karty (Bootstrap Card) s ikonou, 3 vedle sebe od 768 px -->
   <div class="bg-light py-5">
     <div class="container">
       <h2 class="text-center mb-4">The three macronutrients</h2>
@@ -100,7 +119,7 @@
             <div class="card-body">
               <i class="bi bi-egg-fried feature-icon"></i>
               <h3 class="card-title mt-2">Protein</h3>
-              <p class="mono text-muted">1.6 &ndash; 2.2 g / kg</p>
+              <p class="code-font text-muted">1.6 &ndash; 2.2 g / kg</p>
               <p class="card-text">Builds and repairs muscle. Sources: meat, fish, eggs, cottage cheese, Greek yogurt, legumes.</p>
             </div>
           </div>
@@ -110,7 +129,7 @@
             <div class="card-body">
               <i class="bi bi-basket2 feature-icon"></i>
               <h3 class="card-title mt-2">Carbohydrates</h3>
-              <p class="mono text-muted">3 &ndash; 5 g / kg</p>
+              <p class="code-font text-muted">3 &ndash; 5 g / kg</p>
               <p class="card-text">The main fuel for hard training. Sources: oats, rice, potatoes, whole-grain bread, fruit.</p>
             </div>
           </div>
@@ -120,7 +139,7 @@
             <div class="card-body">
               <i class="bi bi-droplet feature-icon"></i>
               <h3 class="card-title mt-2">Fats</h3>
-              <p class="mono text-muted">0.8 &ndash; 1 g / kg</p>
+              <p class="code-font text-muted">0.8 &ndash; 1 g / kg</p>
               <p class="card-text">Important for hormones and health. Sources: nuts, olive oil, avocado, fatty fish.</p>
             </div>
           </div>
@@ -129,7 +148,8 @@
     </div>
   </div>
 
-  <!-- Meal plans in tabs -->
+  <!-- UKÁZKOVÉ JÍDELNÍČKY v záložkách. Je to stejná komponenta jako záložky na úvodní stránce,
+       jen ve vzhledu "pills" (nav-pills, data-bs-toggle="pill"). Každá záložka obsahuje tabulku. -->
   <div class="container my-5">
     <h2 class="mb-3">Sample day of eating</h2>
     <p>Choose your goal to see an example menu for a person weighing around 75 kg.</p>
@@ -207,7 +227,7 @@
     </div>
   </div>
 
-  <!-- Tips -->
+  <!-- PRAVIDLA: číslovaný seznam (Bootstrap List group) a vedle mřížka 2×2 s fotkami a upozorněním (Alert) -->
   <div class="container mb-5">
     <h2 class="mb-4">5 simple rules</h2>
     <div class="row g-4">
@@ -237,11 +257,13 @@
 
 </main>
 
+<!-- PATIČKA - stejná na všech stránkách
+     row-cols-1 row-cols-md-3 = na mobilu 1 sloupec pod sebou, od 768 px (md) 3 sloupce vedle sebe -->
 <footer class="pt-4 pb-3 mt-auto">
   <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-3">
       <div class="col">
-        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <h5 class="text-white"><i class="bi bi-cpu text-green"></i> <span class="logo-highlight">Byte</span>Lift</h5>
         <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
       </div>
       <div class="col">
@@ -267,6 +289,8 @@
   </div>
 </footer>
 
+<!-- JavaScript Bootstrapu - díky němu fungují menu na mobilu, karusel, záložky,
+     modální okna a akordeon. Načítá se až na konci, aby se nejdřív zobrazil obsah. -->
 <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>

@@ -2,12 +2,19 @@
 <html lang="en">
 
 <head>
+  <!-- Kódování znaků (aby fungovala diakritika) a nastavení pro mobily:
+       viewport říká telefonu, ať stránku nezmenšuje, ale zobrazí ji v šířce displeje.
+       Bez tohoto řádku by responzivita na mobilu nefungovala. -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ByteLift - upgrade your body. Training plans, exercise database and nutrition tips.">
 
   <title>Gallery | ByteLift</title>
+  <!-- ikona webu v záložce prohlížeče -->
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
+  <!-- Styly: 1) Bootstrap 5.3.8, 2) ikony Bootstrap Icons, 3) fonty z Google Fonts,
+       4) náš vlastní style.css - je poslední, aby mohl přepsat pravidla Bootstrapu. -->
   <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="./icons/bootstrap-icons.css" rel="stylesheet">
 
@@ -20,15 +27,24 @@
 
 <body>
 
+<!-- HLAVIČKA S MENU - stejná na všech stránkách -->
 <header>
+  <!-- navbar = Bootstrap komponenta menu
+       navbar-expand-lg = od šířky 992 px (lg) je menu v řádku, na menších displejích se schová pod "hamburger" tlačítko
+       navbar-dark = světlý text pro tmavé pozadí, sticky-top = menu zůstává nahoře při scrollování -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
+      <!-- Logo: ikona procesoru + text ByteLift, slovo "Byte" je zelené (třída logo-highlight) -->
       <a class="navbar-brand" href="./index.html">
-        <i class="bi bi-cpu"></i> <span class="brand-byte">Byte</span>Lift
+        <i class="bi bi-cpu"></i> <span class="logo-highlight">Byte</span>Lift
       </a>
+      <!-- "Hamburger" tlačítko - vidět jen na mobilu/tabletu. Po kliknutí rozbalí
+           prvek s id="navbarCollapse" (data-bs-target), JavaScript k tomu dodává Bootstrap. -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <!-- Položky menu. ms-auto = odsune menu doprava. Každá položka má ikonu (<i class="bi ...">).
+           Třída active + aria-current označuje stránku, na které právě jsem. -->
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
@@ -57,7 +73,9 @@
 
 <main>
 
-  <!-- Page header with breadcrumb -->
+  <!-- ZÁHLAVÍ PODSTRÁNKY: tmavý pruh s fotkou (třída page-header ve style.css),
+       drobečková navigace (breadcrumb = kde se nacházím: Home / název stránky),
+       nadpis stránky a krátký popis -->
   <div class="page-header">
     <div class="container">
       <nav aria-label="breadcrumb">
@@ -70,6 +88,10 @@
       <p class="lead mb-0">A look inside the ByteLift world.</p>
     </div>
   </div>
+  <!-- GALERIE: úvodní text + 3 skupiny po 4 fotkách.
+       Každá fotka je uvnitř tlačítka <button>, aby šla otevřít myší i klávesnicí.
+       data-bs-toggle="modal" data-bs-target="#photoModal" = po kliknutí otevře modální okno s fotkou.
+       row-cols-1 row-cols-sm-2 row-cols-lg-4 = 1 / 2 / 4 fotky vedle sebe podle šířky displeje. -->
   <div class="container my-5">
     <div class="row g-4 mb-2">
       <div class="col-lg-8">
@@ -92,88 +114,88 @@
       </div>
     </div>
 
-    <h2 class="h3 mt-5 mb-2"><i class="bi bi-lightning-charge text-accent"></i> Gym</h2>
+    <h2 class="h3 mt-5 mb-2"><i class="bi bi-lightning-charge text-green"></i> Gym</h2>
     <p class="text-muted">A good gym does not have to be fancy. Free weights, a squat rack, a few machines and some space for cardio cover everything you need for all three plan versions.</p>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Gym equipment inside a room"><img src="./photos/gym-1.jpg" class="gallery-img" alt="Gym equipment inside a room"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Gym equipment inside a room"><img src="./photos/gym-1.jpg" class="gallery-photo" alt="Gym equipment inside a room"></button>
           <figcaption class="mt-2"><strong>The main floor</strong><br><span class="small text-muted">Benches, racks and machines &ndash; the place where v2.0 and v3.0 happen.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Exercise equipment in grayscale"><img src="./photos/gym-3.jpg" class="gallery-img" alt="Exercise equipment in grayscale"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Exercise equipment in grayscale"><img src="./photos/gym-3.jpg" class="gallery-photo" alt="Exercise equipment in grayscale"></button>
           <figcaption class="mt-2"><strong>Machines zone</strong><br><span class="small text-muted">Safe for beginners: machines guide the movement while you learn.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Row of dumbbells on a rack"><img src="./photos/gym-5.jpg" class="gallery-img" alt="Row of dumbbells on a rack"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Row of dumbbells on a rack"><img src="./photos/gym-5.jpg" class="gallery-photo" alt="Row of dumbbells on a rack"></button>
           <figcaption class="mt-2"><strong>Dumbbell rack</strong><br><span class="small text-muted">The most versatile tool &ndash; used in 14 exercises from our database.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Row of treadmills in a gym"><img src="./photos/gym-8.jpg" class="gallery-img" alt="Row of treadmills in a gym"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Row of treadmills in a gym"><img src="./photos/gym-8.jpg" class="gallery-photo" alt="Row of treadmills in a gym"></button>
           <figcaption class="mt-2"><strong>Cardio area</strong><br><span class="small text-muted">Light cardio on rest days helps recovery and keeps your heart healthy.</span></figcaption>
         </figure>
       </div>
     </div>
 
-    <h2 class="h3 mt-5 mb-2"><i class="bi bi-trophy text-accent"></i> Training</h2>
+    <h2 class="h3 mt-5 mb-2"><i class="bi bi-trophy text-green"></i> Training</h2>
     <p class="text-muted">Technique first, weight second. These are some of the key movements you will find in the <a href="./exercises.html" class="link-dark">exercise database</a>.</p>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Man working out in grayscale"><img src="./photos/gym-2.jpg" class="gallery-img" alt="Man working out in grayscale"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Man working out in grayscale"><img src="./photos/gym-2.jpg" class="gallery-photo" alt="Man working out in grayscale"></button>
           <figcaption class="mt-2"><strong>Focus</strong><br><span class="small text-muted">Slow, controlled reps build more muscle than rushed ones.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Man carrying a dumbbell"><img src="./photos/gym-4.jpg" class="gallery-img" alt="Man carrying a dumbbell"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Man carrying a dumbbell"><img src="./photos/gym-4.jpg" class="gallery-photo" alt="Man carrying a dumbbell"></button>
           <figcaption class="mt-2"><strong>Farmer's walk</strong><br><span class="small text-muted">Grip, core and posture in one simple exercise.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Man lifting a barbell"><img src="./photos/gym-6.jpg" class="gallery-img" alt="Man lifting a barbell"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Man lifting a barbell"><img src="./photos/gym-6.jpg" class="gallery-photo" alt="Man lifting a barbell"></button>
           <figcaption class="mt-2"><strong>Barbell lifts</strong><br><span class="small text-muted">Squat, bench press and deadlift are the core of v2.0 and v3.0.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Woman training with a battle rope"><img src="./photos/gym-7.jpg" class="gallery-img" alt="Woman training with a battle rope"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Woman training with a battle rope"><img src="./photos/gym-7.jpg" class="gallery-photo" alt="Woman training with a battle rope"></button>
           <figcaption class="mt-2"><strong>Conditioning</strong><br><span class="small text-muted">Battle ropes &ndash; a short, intense finisher at the end of a session.</span></figcaption>
         </figure>
       </div>
     </div>
 
-    <h2 class="h3 mt-5 mb-2"><i class="bi bi-egg-fried text-accent"></i> Food</h2>
+    <h2 class="h3 mt-5 mb-2"><i class="bi bi-egg-fried text-green"></i> Food</h2>
     <p class="text-muted">Simple meals that fit the rules from our <a href="./nutrition.html" class="link-dark">nutrition page</a> &ndash; enough protein, plenty of vegetables and food you can prepare in advance.</p>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Meal prep containers"><img src="./photos/food-1.jpg" class="gallery-img" alt="Meal prep containers"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Meal prep containers"><img src="./photos/food-1.jpg" class="gallery-photo" alt="Meal prep containers"></button>
           <figcaption class="mt-2"><strong>Meal prep</strong><br><span class="small text-muted">Cook once on Sunday, eat well for three days.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Avocado, tomatoes and eggs"><img src="./photos/food-2.jpg" class="gallery-img" alt="Avocado, tomatoes and eggs"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Avocado, tomatoes and eggs"><img src="./photos/food-2.jpg" class="gallery-photo" alt="Avocado, tomatoes and eggs"></button>
           <figcaption class="mt-2"><strong>Breakfast basics</strong><br><span class="small text-muted">Eggs, avocado and vegetables &ndash; protein and healthy fats.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Cooked food on a tray"><img src="./photos/food-3.jpg" class="gallery-img" alt="Cooked food on a tray"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Cooked food on a tray"><img src="./photos/food-3.jpg" class="gallery-photo" alt="Cooked food on a tray"></button>
           <figcaption class="mt-2"><strong>Oven tray dinner</strong><br><span class="small text-muted">Meat or fish with vegetables, ready in 30 minutes.</span></figcaption>
         </figure>
       </div>
       <div class="col">
         <figure class="mb-0">
-          <button type="button" class="gallery-btn" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Person cutting vegetables"><img src="./photos/food-4.jpg" class="gallery-img" alt="Person cutting vegetables"></button>
+          <button type="button" class="gallery-photo-button" data-bs-toggle="modal" data-bs-target="#photoModal" aria-label="Open photo: Person cutting vegetables"><img src="./photos/food-4.jpg" class="gallery-photo" alt="Person cutting vegetables"></button>
           <figcaption class="mt-2"><strong>Half a plate of veggies</strong><br><span class="small text-muted">Fibre and vitamins with almost no calories.</span></figcaption>
         </figure>
       </div>
@@ -181,13 +203,14 @@
 
     <div class="text-center mt-5">
       <a href="./plans.html" class="btn btn-dark me-2 mb-2"><i class="bi bi-calendar-check"></i> See training plans</a>
-      <a href="./contact.html" class="btn btn-accent mb-2"><i class="bi bi-send"></i> Order a plan</a>
+      <a href="./contact.html" class="btn btn-green mb-2"><i class="bi bi-send"></i> Order a plan</a>
     </div>
   </div>
 
 </main>
 
-<!-- Photo modal -->
+<!-- MODÁLNÍ OKNO PRO FOTKU: je jen jedno pro všechny fotky.
+     Fotku a nadpis do něj vloží JavaScript na konci stránky podle toho, na co se kliklo. -->
 <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content bg-dark text-white">
@@ -202,11 +225,13 @@
   </div>
 </div>
 
+<!-- PATIČKA - stejná na všech stránkách
+     row-cols-1 row-cols-md-3 = na mobilu 1 sloupec pod sebou, od 768 px (md) 3 sloupce vedle sebe -->
 <footer class="pt-4 pb-3 mt-auto">
   <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-3">
       <div class="col">
-        <h5 class="text-white"><i class="bi bi-cpu text-accent"></i> <span class="brand-byte">Byte</span>Lift</h5>
+        <h5 class="text-white"><i class="bi bi-cpu text-green"></i> <span class="logo-highlight">Byte</span>Lift</h5>
         <p class="small mb-0">Upgrade your body. Training plans, exercise database and nutrition tips.</p>
       </div>
       <div class="col">
@@ -232,15 +257,27 @@
   </div>
 </footer>
 
+<!-- JavaScript Bootstrapu - díky němu fungují menu na mobilu, karusel, záložky,
+     modální okna a akordeon. Načítá se až na konci, aby se nejdřív zobrazil obsah. -->
 <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Vlastní JavaScript pro galerii: do jednoho společného modálního okna
+     vloží fotku, na kterou uživatel klikl. -->
 <script>
-  // show the clicked photo in the modal
-  document.getElementById('photoModal').addEventListener('show.bs.modal', function (event) {
-    const img = event.relatedTarget.querySelector('img');
-    document.getElementById('photoModalImg').src = img.src;
-    document.getElementById('photoModalImg').alt = img.alt;
-    document.getElementById('photoModalLabel').textContent = img.alt;
-  });
+  const photoModal = document.getElementById('photoModal');
+  const photoModalImage = document.getElementById('photoModalImg');
+  const photoModalTitle = document.getElementById('photoModalLabel');
+
+  // Bootstrap spustí událost 'show.bs.modal' těsně před otevřením okna.
+  // event.relatedTarget je tlačítko (fotka), na které se kliklo.
+  function showClickedPhotoInModal(event) {
+    const clickedButton = event.relatedTarget;
+    const clickedPhoto = clickedButton.querySelector('img');
+
+    photoModalImage.src = clickedPhoto.src;            // stejná fotka, jen větší
+    photoModalImage.alt = clickedPhoto.alt;            // popis pro čtečky obrazovky
+    photoModalTitle.textContent = clickedPhoto.alt;    // nadpis okna = popis fotky
+  }
+  photoModal.addEventListener('show.bs.modal', showClickedPhotoInModal);
 </script>
 
 </body>
