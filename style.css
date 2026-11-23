@@ -173,6 +173,13 @@ h1, h2, h3, h4, h5, .navbar-brand {
     overflow-x: auto;
 }
 
+/* ---------- Form ---------- */
+
+/* show the error message under a group of radio buttons */
+.was-validated .radio-group:has(input:invalid) > .invalid-feedback {
+    display: block;
+}
+
 /* ---------- Gallery ---------- */
 
 .gallery-img {
