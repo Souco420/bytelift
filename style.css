@@ -175,8 +175,8 @@ h1, h2, h3, h4, h5, .navbar-brand {
 
 /* ---------- Form ---------- */
 
-/* show the error message under a group of radio buttons */
-.was-validated .radio-group:has(input:invalid) > .invalid-feedback {
+/* show the error message under a group of radio buttons / checkboxes */
+.was-validated .choice-group:has(input:invalid) > .invalid-feedback {
     display: block;
 }
 
@@ -189,6 +189,20 @@ h1, h2, h3, h4, h5, .navbar-brand {
     border-radius: .5rem;
     cursor: pointer;
     transition: opacity .2s;
+}
+
+.gallery-btn {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    border-radius: .5rem;
+}
+
+.gallery-btn:focus-visible {
+    outline: 3px solid var(--bl-accent);
+    outline-offset: 3px;
 }
 
 .gallery-img:hover {
@@ -250,6 +264,24 @@ footer .social a {
     }
 }
 
+/* Very narrow phones (e.g. Galaxy Fold, 280-359 px) */
+@media (max-width: 359.98px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 10%;
+    }
+    .carousel-caption {
+        left: 10%;
+        right: 10%;
+    }
+    .carousel-caption h2 {
+        font-size: 1.3rem;
+    }
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+}
+
 /* Small devices (landscape phones) */
 @media (min-width: 576px) and (max-width: 767.98px) {
     .carousel-item img {
@@ -267,5 +299,22 @@ footer .social a {
     }
     .navbar-brand {
         font-size: 1.4rem;
+    }
+}
+
+/* Phones turned to landscape - low screen height */
+@media (max-height: 500px) and (orientation: landscape) {
+    .carousel-item img {
+        height: calc(100vh - 60px);
+        min-height: 220px;
+    }
+    .carousel-caption {
+        bottom: 12%;
+    }
+    .carousel-caption h2 {
+        font-size: 1.6rem;
+    }
+    .carousel-caption p:not(.mono) {
+        display: none;
     }
 }

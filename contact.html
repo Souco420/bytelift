@@ -88,31 +88,32 @@
           <div class="row g-3">
             <div class="col-md-6">
               <label for="firstName" class="form-label">First name <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" id="firstName" placeholder="John" required>
-              <div class="invalid-feedback">Please enter your first name.</div>
+              <input type="text" class="form-control" id="firstName" placeholder="John" maxlength="50" pattern="\s*\p{L}[\p{L}\s'\-]*" autocomplete="given-name" required>
+              <div class="invalid-feedback">Please enter your first name (letters only, max. 50 characters).</div>
             </div>
             <div class="col-md-6">
               <label for="lastName" class="form-label">Last name <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" id="lastName" placeholder="Smith" required>
-              <div class="invalid-feedback">Please enter your last name.</div>
+              <input type="text" class="form-control" id="lastName" placeholder="Smith" maxlength="50" pattern="\s*\p{L}[\p{L}\s'\-]*" autocomplete="family-name" required>
+              <div class="invalid-feedback">Please enter your last name (letters only, max. 50 characters).</div>
             </div>
             <div class="col-md-6">
               <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
               <div class="input-group has-validation">
                 <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                <div class="invalid-feedback">Please enter a valid email address.</div>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" maxlength="100" pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" autocomplete="email" required>
+                <div class="invalid-feedback">Please enter a valid email address, e.g. name@example.com.</div>
               </div>
             </div>
             <div class="col-md-6">
               <label for="phone" class="form-label">Phone</label>
-              <div class="input-group">
+              <div class="input-group has-validation">
                 <span class="input-group-text">+420</span>
-                <input type="tel" class="form-control" id="phone" placeholder="123 456 789" pattern="[0-9 ]{9,11}">
+                <input type="tel" class="form-control" id="phone" placeholder="123 456 789" maxlength="11" pattern="\d{3} ?\d{3} ?\d{3}" autocomplete="tel-national">
+                <div class="invalid-feedback">Enter 9 digits, e.g. 123 456 789.</div>
               </div>
               <div class="form-text">Optional, 9 digits.</div>
             </div>
-            <div class="col-md-6 radio-group">
+            <div class="col-md-6 choice-group">
               <label class="form-label d-block">Sex <span class="text-danger">*</span></label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="sex" id="sexMale" value="male" required>
@@ -130,8 +131,8 @@
             </div>
             <div class="col-md-6">
               <label for="age" class="form-label">Age <span class="text-danger">*</span></label>
-              <input type="number" class="form-control" id="age" min="15" max="99" placeholder="25" required>
-              <div class="invalid-feedback">Age must be between 15 and 99.</div>
+              <input type="number" class="form-control" id="age" min="15" max="99" step="1" placeholder="25" required>
+              <div class="invalid-feedback">Enter a whole number between 15 and 99.</div>
             </div>
           </div>
 
@@ -140,9 +141,9 @@
             <div class="col-md-6">
               <label for="height" class="form-label">Height <span class="text-danger">*</span></label>
               <div class="input-group has-validation">
-                <input type="number" class="form-control" id="height" min="120" max="230" placeholder="180" required>
+                <input type="number" class="form-control" id="height" min="120" max="230" step="1" placeholder="180" required>
                 <span class="input-group-text">cm</span>
-                <div class="invalid-feedback">Enter height between 120 and 230 cm.</div>
+                <div class="invalid-feedback">Enter a whole number between 120 and 230 cm.</div>
               </div>
             </div>
             <div class="col-md-6">
@@ -150,7 +151,7 @@
               <div class="input-group has-validation">
                 <input type="number" class="form-control" id="weight" min="35" max="250" step="0.1" placeholder="75" required>
                 <span class="input-group-text">kg</span>
-                <div class="invalid-feedback">Enter weight between 35 and 250 kg.</div>
+                <div class="invalid-feedback">Enter weight between 35 and 250 kg (max. one decimal place).</div>
               </div>
             </div>
           </div>
@@ -191,8 +192,8 @@
                 <label class="form-check-label" for="exp2">More than 2 years</label>
               </div>
             </div>
-            <div class="col-md-6">
-              <label class="form-label d-block">Available training days</label>
+            <div class="col-md-6 choice-group" id="daysGroup">
+              <label class="form-label d-block">Available training days <span class="text-danger">*</span></label>
               <div class="row row-cols-2">
                 <div class="col form-check ps-4">
                   <input class="form-check-input" type="checkbox" name="days" value="mon" id="dayMon">
@@ -223,6 +224,7 @@
                   <label class="form-check-label" for="daySun">Sunday</label>
                 </div>
               </div>
+              <div class="invalid-feedback">Please select at least one day.</div>
             </div>
             <div class="col-md-6">
               <label for="sessionLength" class="form-label">Session length: <span id="sessionLengthValue" class="mono">60</span> min</label>
@@ -230,14 +232,16 @@
             </div>
             <div class="col-md-6">
               <label for="startDate" class="form-label">Preferred start date</label>
-              <div class="input-group">
+              <div class="input-group has-validation">
                 <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
                 <input type="date" class="form-control" id="startDate">
+                <div class="invalid-feedback">Choose a date from today up to one year ahead.</div>
               </div>
             </div>
             <div class="col-12">
               <label for="note" class="form-label">Injuries, limitations or notes</label>
-              <textarea class="form-control" id="note" rows="4" placeholder="e.g. old knee injury, I train at home, I want to focus on my back&hellip;"></textarea>
+              <textarea class="form-control" id="note" rows="4" maxlength="1000" placeholder="e.g. old knee injury, I train at home, I want to focus on my back&hellip;"></textarea>
+              <div class="form-text"><span id="noteCount">0</span> / 1000 characters</div>
             </div>
             <div class="col-12">
               <div class="form-check form-switch">
@@ -318,26 +322,68 @@
 
 <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
-  // show the value of the range input
+  const form = document.getElementById('orderForm');
   const range = document.getElementById('sessionLength');
-  range.addEventListener('input', function () {
-    document.getElementById('sessionLengthValue').textContent = range.value;
-  });
+  const rangeValue = document.getElementById('sessionLengthValue');
+  const note = document.getElementById('note');
+  const noteCount = document.getElementById('noteCount');
+  const startDate = document.getElementById('startDate');
+  const dayBoxes = document.querySelectorAll('input[name="days"]');
+  const success = document.getElementById('formSuccess');
+
+  // show the value of the range input and the length of the note
+  range.addEventListener('input', function () { rangeValue.textContent = range.value; });
+  note.addEventListener('input', function () { noteCount.textContent = note.value.length; });
+
+  // start date: from today up to one year ahead
+  function isoDate(d) {
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return d.getFullYear() + '-' + m + '-' + day;
+  }
+  const today = new Date();
+  const nextYear = new Date();
+  nextYear.setFullYear(today.getFullYear() + 1);
+  startDate.min = isoDate(today);
+  startDate.max = isoDate(nextYear);
+
+  // at least one training day must be selected
+  function checkDays() {
+    const anyChecked = Array.from(dayBoxes).some(function (box) { return box.checked; });
+    dayBoxes.forEach(function (box) { box.setCustomValidity(anyChecked ? '' : 'Select at least one day'); });
+  }
+  dayBoxes.forEach(function (box) { box.addEventListener('change', checkDays); });
+  checkDays();
 
   // Bootstrap form validation, no data is sent anywhere (static website)
-  const form = document.getElementById('orderForm');
   form.addEventListener('submit', function (event) {
     event.preventDefault();
+    checkDays();
     if (form.checkValidity()) {
-      document.getElementById('formSuccess').classList.remove('d-none');
+      success.classList.remove('d-none');
       form.reset();
-      form.classList.remove('was-validated');
-      document.getElementById('sessionLengthValue').textContent = range.value;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
+      success.classList.add('d-none');
       form.classList.add('was-validated');
+      // move the user to the first wrong field
+      const firstInvalid = form.querySelector(':invalid');
+      if (firstInvalid) { firstInvalid.focus(); }
     }
   });
+
+  // after Reset clear the error messages and update the texts
+  form.addEventListener('reset', function () {
+    form.classList.remove('was-validated');
+    setTimeout(function () {
+      rangeValue.textContent = range.value;
+      noteCount.textContent = note.value.length;
+      checkDays();
+    }, 0);
+  });
+
+  // hide the success message when the user starts filling the form again
+  form.addEventListener('input', function () { success.classList.add('d-none'); });
 </script>
 
 </body>
